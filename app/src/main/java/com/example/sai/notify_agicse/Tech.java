@@ -24,39 +24,15 @@ import android.view.ViewGroup;
 public class Tech extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
 {
 
-    ViewPager vp;
-    FragmentPagerAdapter adapterViewPager;
     DrawerLayout mDrawerLayout;
     ActionBarDrawerToggle mToggle;
     NavigationView nv;
-    public static class MyPagerAdapter extends FragmentPagerAdapter{
-    int count = 2;
-        public MyPagerAdapter(FragmentManager fragmentManager){
-            super(fragmentManager);
-        }
 
-        @Override
-        public Fragment getItem(int position) {
-            switch(position)
-            {
-                case 0:Event1.newinstance(0,"1");break;
-                case 1:Event2.newinstance(1,"2");break;
-            }
-            return null;
-        }
-
-        public int getCount(){
-            return count;
-        }
-}
     @Override
     protected  void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tech);
-        vp=(ViewPager)findViewById(R.id.pager);
-        adapterViewPager  = new MyPagerAdapter(getSupportFragmentManager());
-        vp.setAdapter(adapterViewPager);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.tech);
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close);
         mDrawerLayout.setDrawerListener(mToggle);
