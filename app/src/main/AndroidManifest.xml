@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.sai.notify_agicse">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/notify"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Splash">
+        <activity android:name=".SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme"
+            android:label="@string/bar"></activity>
+
+        <activity
+            android:name=".About"
+            android:theme="@style/AppTheme"
+            android:label="@string/about"></activity>
+        <activity
+            android:name=".Tech"
+            android:theme="@style/AppTheme"
+            android:label="@string/bar"></activity>
+        <activity
+            android:name=".Non_tech"
+            android:theme="@style/AppTheme"
+            android:label="@string/bar"></activity>
+        <activity
+        android:name=".Dev"
+        android:theme="@style/AppTheme"
+        android:label="@string/bar"></activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Notify-agicse</string>
+    <string name="open">Open</string>
+    <string name="bar">AGI CSE</string>
+    <string name="close">Close</string>
+    <string name="about">About</string>
+</resources>

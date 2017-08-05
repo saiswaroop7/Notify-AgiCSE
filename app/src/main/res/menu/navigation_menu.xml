@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+<group android:checkableBehavior="single">
+<item
+    android:id="@+id/nav_tech"
+    android:title="Technical Events"
+    android:icon="@mipmap/tech" />
+<item
+    android:id="@+id/nav_nontech"
+    android:title="Non Technical Events"
+    android:icon="@mipmap/non_tech"/>
+<item
+    android:id="@+id/nav_about"
+    android:title="About"
+    android:icon="@mipmap/about"/>
+<item
+    android:id="@+id/nav_Dev"
+    android:title="Developers"
+    android:icon="@mipmap/dev"/>
+
+</group>
+
+
+</menu>
