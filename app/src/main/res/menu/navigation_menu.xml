@@ -15,9 +15,13 @@
     android:title="About"
     android:icon="@mipmap/about"/>
 <item
-    android:id="@+id/nav_Dev"
-    android:title="Developers"
-    android:icon="@mipmap/dev"/>
+        android:id="@+id/nav_Dev"
+        android:title="Developers"
+        android:icon="@mipmap/dev"/>
+
+    <item
+        android:id="@+id/nav_logout"
+        android:title="Logout"/>
 
 </group>
 

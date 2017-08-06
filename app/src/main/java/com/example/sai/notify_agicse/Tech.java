@@ -41,6 +41,7 @@ public class Tech extends AppCompatActivity implements NavigationView.OnNavigati
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         nv= (NavigationView) findViewById(R.id.nav_view);
         nv.setNavigationItemSelectedListener(this);
+
         ImageButton b1 = (ImageButton) findViewById(R.id.event1);
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
