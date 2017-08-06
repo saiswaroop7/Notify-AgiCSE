@@ -26,8 +26,7 @@ public class Register extends AppCompatActivity {
     private EditText name;
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
-    String mail;
-    String pass;
+    String mail,pass;
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);

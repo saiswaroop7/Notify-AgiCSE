@@ -23,8 +23,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class Login extends AppCompatActivity {
     private EditText email;
     private EditText password;
-    String mail;
-    String pass;
+    String mail, pass;
     private FirebaseAuth firebaseAuth;
     private ProgressDialog progressDialog;
 
@@ -32,6 +31,7 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
         firebaseAuth = FirebaseAuth.getInstance();
+        progressDialog = new ProgressDialog(this);
         Button b2 = (Button) findViewById(R.id.register_button);
         email = (EditText) findViewById(R.id.input_email);
         password = (EditText) findViewById(R.id.input_password);
@@ -54,6 +54,7 @@ public class Login extends AppCompatActivity {
                 userLogin();
                 if (!userLogin()) {
                     Toast.makeText(getApplicationContext(), "Login Failed", Toast.LENGTH_SHORT).show();
+                    progressDialog.dismiss();
                 } else {
                     Success();
                 }
@@ -67,7 +68,6 @@ public class Login extends AppCompatActivity {
         firebaseAuth.signInWithEmailAndPassword(mail, pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                progressDialog.dismiss();
                 if (task.isSuccessful()) {
                     Intent i = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(i);
@@ -77,7 +77,7 @@ public class Login extends AppCompatActivity {
         });
     }
 
-    private boolean userLogin() {
+    public boolean userLogin() {
         mail = email.getText().toString().trim();
         pass = password.getText().toString().trim();
         boolean valid = true;
@@ -93,7 +93,6 @@ public class Login extends AppCompatActivity {
         } else {
             password.setError(null);
         }
-
 
         return valid;
     }

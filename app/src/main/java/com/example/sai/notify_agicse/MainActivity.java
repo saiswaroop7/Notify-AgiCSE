@@ -67,19 +67,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (id) {
             case R.id.nav_tech:
                 Intent i = new Intent(MainActivity.this, Tech.class);
-                startActivity(i);
+                startActivity(i);finish();
                 break;
             case R.id.nav_nontech:
                 Intent i2 = new Intent(MainActivity.this, Non_tech.class);
-                startActivity(i2);
+                startActivity(i2);finish();
                 break;
             case R.id.nav_about:
                 Intent i3 = new Intent(getApplicationContext(), About.class);
-                startActivity(i3);
+                startActivity(i3);finish();
                 break;
             case R.id.nav_Dev:
                 Intent i4 = new Intent(MainActivity.this, Dev.class);
-                startActivity(i4);
+                startActivity(i4);finish();
                 break;
             case R.id.nav_logout:
                 firebaseAuth.signOut();

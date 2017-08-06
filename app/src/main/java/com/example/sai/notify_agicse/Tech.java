@@ -17,6 +17,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 /**
  * Created by Sai on 26-07-2017.
@@ -28,12 +32,15 @@ public class Tech extends AppCompatActivity implements NavigationView.OnNavigati
     DrawerLayout mDrawerLayout;
     ActionBarDrawerToggle mToggle;
     NavigationView nv;
-
+    private FirebaseAuth firebaseAuth;
+    private static long back_pressed;
     @Override
     protected  void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tech);
+        firebaseAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = firebaseAuth.getCurrentUser();
         mDrawerLayout = (DrawerLayout) findViewById(R.id.tech);
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close);
         mDrawerLayout.setDrawerListener(mToggle);
@@ -57,9 +64,10 @@ public class Tech extends AppCompatActivity implements NavigationView.OnNavigati
         if (back.isDrawerOpen(GravityCompat.START)) {
             back.closeDrawer(GravityCompat.START);
         }
-        else {
-            super.onBackPressed();
-        }
+        else if  (back_pressed + 2000 > System.currentTimeMillis()) {super.onBackPressed();}
+        else
+            Toast.makeText(getBaseContext(), "Press again to exit", Toast.LENGTH_SHORT).show();
+        back_pressed = System.currentTimeMillis();
     }
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -92,6 +100,10 @@ public class Tech extends AppCompatActivity implements NavigationView.OnNavigati
                 Intent i4 = new Intent(getApplicationContext(),Dev.class);
                 startActivity(i4);
                 break;
+            case R.id.nav_logout:
+                firebaseAuth.signOut();
+                finish();
+                startActivity(new Intent(this, Login.class));
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawerLayout);
         drawer.closeDrawer(GravityCompat.START);
