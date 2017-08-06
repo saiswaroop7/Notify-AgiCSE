@@ -11,20 +11,23 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/tech_relative">
-    <TextView
-        android:id="@+id/techtv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="Technical Events"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-        android:textColor="#fffefa" />
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/pager"
-        android:layout_width="match_parent"
-        android:layout_height="500dp" />
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="Event 1"
+         android:textColor="#FFF"
+         android:id="@+id/tv_event1"
+         android:layout_centerHorizontal="true"
+         android:layout_centerVertical="true"/>
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/nav_header"
+        android:id="@+id/event1"
+        android:layout_below="@+id/tv_event1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp" />
     </RelativeLayout>
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"

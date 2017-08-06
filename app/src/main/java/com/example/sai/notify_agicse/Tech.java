@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 /**
  * Created by Sai on 26-07-2017.
@@ -40,6 +41,13 @@ public class Tech extends AppCompatActivity implements NavigationView.OnNavigati
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         nv= (NavigationView) findViewById(R.id.nav_view);
         nv.setNavigationItemSelectedListener(this);
+        ImageButton b1 = (ImageButton) findViewById(R.id.event1);
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     @Override
@@ -65,6 +73,7 @@ public class Tech extends AppCompatActivity implements NavigationView.OnNavigati
     private void displaySelectedScreen(int id){
         switch(id)
         {
+
             case R.id.nav_tech:
                 Intent i = new Intent(getApplicationContext(),Tech.class);
                 startActivity(i);
@@ -75,6 +84,7 @@ public class Tech extends AppCompatActivity implements NavigationView.OnNavigati
                 break;
             case R.id.nav_about:
                 Intent i3 = new Intent(getApplicationContext(),About.class);
+
                 startActivity(i3);
                 break;
             case R.id.nav_Dev:

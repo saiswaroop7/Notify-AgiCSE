@@ -13,11 +13,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     DrawerLayout mDrawerLayout;
     ActionBarDrawerToggle mToggle;
     NavigationView nv;
+    private static long back_pressed;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,49 +30,50 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mDrawerLayout.setDrawerListener(mToggle);
         mToggle.syncState();
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        nv= (NavigationView) findViewById(R.id.nav_view);
+        nv = (NavigationView) findViewById(R.id.nav_view);
         nv.setNavigationItemSelectedListener(this);
     }
 
     @Override
-    public void onBackPressed(){
-        DrawerLayout back= (DrawerLayout) findViewById(R.id.drawerLayout);
+    public void onBackPressed() {
+        DrawerLayout back = (DrawerLayout) findViewById(R.id.drawerLayout);
         if (back.isDrawerOpen(GravityCompat.START)) {
             back.closeDrawer(GravityCompat.START);
-        }
-        else {
-            super.onBackPressed();
-        }
+        } else if  (back_pressed + 2000 > System.currentTimeMillis()) {super.onBackPressed();}
+        else
+        Toast.makeText(getBaseContext(), "Press again to exit", Toast.LENGTH_SHORT).show();
+        back_pressed = System.currentTimeMillis();
     }
+
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item){
-            int id=item.getItemId();
-            displaySelectedScreen(id);
+    public boolean onNavigationItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        displaySelectedScreen(id);
 
-            return true;
-        }
+        return true;
+    }
 
 
-    private void displaySelectedScreen(int id){
-        switch(id)
-        {
+    private void displaySelectedScreen(int id) {
+        switch (id) {
             case R.id.nav_tech:
-                 Intent i = new Intent(MainActivity.this,Tech.class);
-                 startActivity(i);
-                 break;
+                Intent i = new Intent(MainActivity.this, Tech.class);
+                startActivity(i);
+                break;
             case R.id.nav_nontech:
-                 Intent i2 = new Intent(MainActivity.this,Non_tech.class);
-                 startActivity(i2);
-                 break;
+                Intent i2 = new Intent(MainActivity.this, Non_tech.class);
+                startActivity(i2);
+                break;
             case R.id.nav_about:
-                 Intent i3 = new Intent(getApplicationContext(),About.class);
-                 startActivity(i3);
-                 break;
+                Intent i3 = new Intent(getApplicationContext(), About.class);
+                startActivity(i3);
+                break;
             case R.id.nav_Dev:
-                 Intent i4 = new Intent(MainActivity.this,Dev.class);
-                 startActivity(i4);
-                 break;
+                Intent i4 = new Intent(MainActivity.this, Dev.class);
+                startActivity(i4);
+                break;
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawerLayout);
         drawer.closeDrawer(GravityCompat.START);
@@ -77,10 +81,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (mToggle.onOptionsItemSelected(item))
-        {
+        if (mToggle.onOptionsItemSelected(item)) {
             return mToggle.onOptionsItemSelected(item);
         }
         return super.onOptionsItemSelected(item);
     }
-    }
+}

@@ -59,19 +59,19 @@ public class Non_tech extends AppCompatActivity implements NavigationView.OnNavi
         switch(id)
         {
             case R.id.nav_tech:
-                Intent i = new Intent(getApplicationContext(),Tech.class);
+                Intent i = new Intent(this,Tech.class);
                 startActivity(i);
                 break;
             case R.id.nav_nontech:
-                Intent i2 = new Intent(getApplicationContext(),Non_tech.class);
+                Intent i2 = new Intent(this,Non_tech.class);
                 startActivity(i2);
                 break;
             case R.id.nav_about:
-                Intent i3 = new Intent(getApplicationContext(),About.class);
+                Intent i3 = new Intent(this,About.class);
                 startActivity(i3);
                 break;
             case R.id.nav_Dev:
-                Intent i4 = new Intent(getApplicationContext(),Dev.class);
+                Intent i4 = new Intent(this,Dev.class);
                 startActivity(i4);
                 break;
         }
