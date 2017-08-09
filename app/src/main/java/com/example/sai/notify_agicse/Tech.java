@@ -22,6 +22,8 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import static java.lang.Thread.sleep;
+
 /**
  * Created by Sai on 26-07-2017.
  */
@@ -48,14 +50,6 @@ public class Tech extends AppCompatActivity implements NavigationView.OnNavigati
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         nv= (NavigationView) findViewById(R.id.nav_view);
         nv.setNavigationItemSelectedListener(this);
-
-        ImageButton b1 = (ImageButton) findViewById(R.id.event1);
-        b1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
     }
 
     @Override

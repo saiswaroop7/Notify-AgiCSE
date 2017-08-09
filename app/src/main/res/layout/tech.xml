@@ -4,9 +4,12 @@
     android:id="@+id/tech"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#2d2a2a"
+    android:background="#78909C"
     android:orientation="vertical">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,20 +18,54 @@
      <TextView
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         android:text="Event 1"
-         android:textColor="#FFF"
-         android:id="@+id/tv_event1"
-         android:layout_centerHorizontal="true"
-         android:layout_centerVertical="true"/>
+         android:paddingTop="20dp"
+         android:text="Ignite :"
+         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+         android:textColor="#2d2a2a"
+         android:id="@+id/tv_event1"/>
     <ImageButton
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/nav_header"
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:fitsSystemWindows="true"
+        android:src="@drawable/ignite_technical"
         android:id="@+id/event1"
         android:layout_below="@+id/tv_event1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="34dp" />
+        android:layout_marginTop="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:layout_below="@+id/event1"
+            android:text="Workshop On Photoshop :"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:textColor="#2d2a2a"
+            android:id="@+id/tv_event2"/>
+
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:src="@drawable/photoshop"
+            android:id="@+id/event2"
+            android:layout_below="@+id/tv_event2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:text="Electronique :"
+            android:layout_below="@+id/event2"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:textColor="#2d2a2a"
+            android:id="@+id/tv_event3"/>
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:src="@drawable/electronique"
+            android:id="@+id/event3"
+            android:layout_below="@+id/tv_event3" />
     </RelativeLayout>
+    </ScrollView>
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
@@ -38,8 +75,5 @@
         app:menu="@menu/navigation_menu">
 
     </android.support.design.widget.NavigationView>
-
-
-
 
 </android.support.v4.widget.DrawerLayout>
