@@ -85,8 +85,11 @@ public class Non_tech extends AppCompatActivity implements NavigationView.OnNavi
                 break;
             case R.id.nav_logout:
                 firebaseAuth.signOut();
-                finish();
-                startActivity(new Intent(this, Login.class));
+                if (firebaseAuth.getCurrentUser() == null)
+                {
+                    startActivity(new Intent(this, Login.class));
+                    finish();
+                }
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawerLayout);
         drawer.closeDrawer(GravityCompat.START);

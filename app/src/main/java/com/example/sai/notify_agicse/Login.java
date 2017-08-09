@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -53,7 +54,7 @@ public class Login extends AppCompatActivity {
             public void onClick(View v) {
                 userLogin();
                 if (!userLogin()) {
-                    Toast.makeText(getApplicationContext(), "Login Failed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Login Failed. Please Enter Valid Details", Toast.LENGTH_SHORT).show();
                     progressDialog.dismiss();
                 } else {
                     Success();
@@ -72,6 +73,10 @@ public class Login extends AppCompatActivity {
                     Intent i = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(i);
                     finish();
+                }
+                else {
+                    progressDialog.dismiss();
+                    Toast.makeText(getApplicationContext(), "User is not Registered. Please try Again", Toast.LENGTH_SHORT).show();
                 }
             }
         });

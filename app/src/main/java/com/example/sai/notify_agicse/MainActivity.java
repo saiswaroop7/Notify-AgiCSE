@@ -18,6 +18,8 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     DrawerLayout mDrawerLayout;
@@ -26,12 +28,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private FirebaseAuth firebaseAuth;
     private static long back_pressed;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         firebaseAuth = FirebaseAuth.getInstance();
-        FirebaseUser user = firebaseAuth.getCurrentUser();
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close);
         mDrawerLayout.setDrawerListener(mToggle);
@@ -39,7 +41,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         nv = (NavigationView) findViewById(R.id.nav_view);
         nv.setNavigationItemSelectedListener(this);
+
     }
+
 
     @Override
     public void onBackPressed() {

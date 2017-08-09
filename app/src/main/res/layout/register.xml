@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fitsSystemWindows="true"
     android:id="@+id/register">
 
@@ -10,13 +10,13 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="56dp"
+        android:paddingTop="35dp"
         android:paddingLeft="24dp"
         android:paddingRight="24dp">
 
         <ImageView android:src="@drawable/app_icon"
             android:layout_width="wrap_content"
-            android:layout_height="72dp"
+            android:layout_height="68dp"
             android:layout_marginBottom="24dp"
             android:layout_gravity="center_horizontal" />
 
@@ -51,12 +51,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            app:passwordToggleEnabled="true">
             <EditText android:id="@+id/input_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:hint="Password"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:passwordToggleEnabled="true">
+            <EditText android:id="@+id/input_repassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:hint="Re Enter Password"/>
         </android.support.design.widget.TextInputLayout>
 
         <!-- Signup Button -->

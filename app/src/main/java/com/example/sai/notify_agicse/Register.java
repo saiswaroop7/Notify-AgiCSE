@@ -15,31 +15,32 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 /**
  * Created by Sai on 05-08-2017.
  */
 
 public class Register extends AppCompatActivity {
-    private EditText email;
-    private EditText password;
-    private EditText name;
+    private EditText email,name,password,repass;
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
-    String mail,pass;
+    String mail,pass,fname,repassword;
+    private FirebaseDatabase firebaseDatabase;
+    private DatabaseReference databaseReference;
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register);
         progressDialog = new ProgressDialog(this);
         firebaseAuth = FirebaseAuth.getInstance();
-        if (firebaseAuth.getCurrentUser() != null) {
-            Intent i = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(i);
-            finish();
-        }
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReferenceFromUrl("https://notify-agicse.firebaseio.com/Users");
         Button b1 = (Button) findViewById(R.id.registration);
         email=(EditText) findViewById(R.id.input_email);
+        repass=(EditText) findViewById(R.id.input_repassword);
         password=(EditText) findViewById(R.id.input_password);
         name=(EditText) findViewById(R.id.input_name);
         b1.setOnClickListener(new View.OnClickListener(){
@@ -65,10 +66,19 @@ public class Register extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful())
                 {
+                    DatabaseReference id = databaseReference.push();
+                    id.child("Email").setValue(email.getText().toString());
+                    id.child("First Name").setValue(name.getText().toString());
                     Toast.makeText(Register.this,"Registration Successful",Toast.LENGTH_SHORT).show();
+                    email.setText("");
+                    name.setText("");
                     Intent i = new Intent(getApplicationContext(), Login.class);
                     startActivity(i);
                     finish();
+                }
+                else {
+                    Toast.makeText(Register.this,"Registration Error. Please try again",Toast.LENGTH_LONG).show();
+                    progressDialog.dismiss();
                 }
             }
         });
@@ -77,7 +87,8 @@ public class Register extends AppCompatActivity {
     {
         mail = email.getText().toString().trim();
         pass = password.getText().toString().trim();
-        String fn = name.getText().toString();
+        repassword = repass.getText().toString();
+        fname = name.getText().toString();
         boolean valid = true;
         if (mail.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(mail).matches()) {
             email.setError("Please enter a valid email address");
@@ -85,7 +96,7 @@ public class Register extends AppCompatActivity {
         } else {
             email.setError(null);
         }
-        if (fn.isEmpty())
+        if (fname.isEmpty())
         {
             name.setError("Field must not be empty");
             valid = false;
@@ -99,7 +110,14 @@ public class Register extends AppCompatActivity {
         } else {
             password.setError(null);
         }
-
+        if(!pass.equals(repassword))
+        {
+            repass.setError("Password does not match");
+            valid=false;
+        }
+        else {
+            repass.setError(null);
+        }
         return valid;
     }
 }
