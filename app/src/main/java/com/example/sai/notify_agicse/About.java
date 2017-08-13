@@ -72,19 +72,23 @@ public class About extends AppCompatActivity implements NavigationView.OnNavigat
         {
             case R.id.nav_tech:
                 Intent i = new Intent(getApplicationContext(),Tech.class);
-                startActivity(i);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);finish();
                 break;
             case R.id.nav_nontech:
                 Intent i2 = new Intent(getApplicationContext(),Non_tech.class);
-                startActivity(i2);
+                i2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i2);finish();
                 break;
             case R.id.nav_about:
                 Intent i3 = new Intent(getApplicationContext(),About.class);
-                startActivity(i3);
+                i3.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i3);finish();
                 break;
             case R.id.nav_Dev:
                 Intent i4 = new Intent(getApplicationContext(),Dev.class);
-                startActivity(i4);
+                i4.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i4);finish();
                 break;
 
             case R.id.nav_logout:

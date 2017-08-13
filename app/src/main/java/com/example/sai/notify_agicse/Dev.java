@@ -45,9 +45,10 @@ public class Dev extends AppCompatActivity implements NavigationView.OnNavigatio
         nv= (NavigationView) findViewById(R.id.nav_view);
         nv.setNavigationItemSelectedListener(this);
     }
+
     @Override
     public void onBackPressed(){
-        DrawerLayout back= (DrawerLayout) findViewById(R.id.about);
+        DrawerLayout back= (DrawerLayout) findViewById(R.id.dev);
         if (back.isDrawerOpen(GravityCompat.START)) {
             back.closeDrawer(GravityCompat.START);
         }
@@ -71,19 +72,23 @@ public class Dev extends AppCompatActivity implements NavigationView.OnNavigatio
         {
             case R.id.nav_tech:
                 Intent i = new Intent(getApplicationContext(),Tech.class);
-                startActivity(i);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);finish();
                 break;
             case R.id.nav_nontech:
                 Intent i2 = new Intent(getApplicationContext(),Non_tech.class);
-                startActivity(i2);
+                i2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i2);finish();
                 break;
             case R.id.nav_about:
                 Intent i3 = new Intent(getApplicationContext(),About.class);
-                startActivity(i3);
+                i3.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i3);finish();
                 break;
             case R.id.nav_Dev:
                 Intent i4 = new Intent(getApplicationContext(),Dev.class);
-                startActivity(i4);
+                i4.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i4);finish();
                 break;
 
             case R.id.nav_logout:

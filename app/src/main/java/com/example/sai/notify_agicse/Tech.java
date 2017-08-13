@@ -54,14 +54,14 @@ public class Tech extends AppCompatActivity implements NavigationView.OnNavigati
 
     @Override
     public void onBackPressed(){
-        DrawerLayout back= (DrawerLayout) findViewById(R.id.drawerLayout);
+        DrawerLayout back= (DrawerLayout) findViewById(R.id.tech);
         if (back.isDrawerOpen(GravityCompat.START)) {
             back.closeDrawer(GravityCompat.START);
         }
         else if  (back_pressed + 2000 > System.currentTimeMillis()) {super.onBackPressed();}
         else
             Toast.makeText(getBaseContext(), "Press again to exit", Toast.LENGTH_SHORT).show();
-        back_pressed = System.currentTimeMillis();
+            back_pressed = System.currentTimeMillis();
     }
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -79,19 +79,22 @@ public class Tech extends AppCompatActivity implements NavigationView.OnNavigati
 
             case R.id.nav_tech:
                 Intent i = new Intent(getApplicationContext(),Tech.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
                 break;
             case R.id.nav_nontech:
                 Intent i2 = new Intent(getApplicationContext(),Non_tech.class);
+                i2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i2);
                 break;
             case R.id.nav_about:
                 Intent i3 = new Intent(getApplicationContext(),About.class);
-
+                i3.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i3);
                 break;
             case R.id.nav_Dev:
                 Intent i4 = new Intent(getApplicationContext(),Dev.class);
+                i4.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i4);
                 break;
             case R.id.nav_logout:

@@ -45,7 +45,7 @@ public class Non_tech extends AppCompatActivity implements NavigationView.OnNavi
     }
     @Override
     public void onBackPressed(){
-        DrawerLayout back= (DrawerLayout) findViewById(R.id.drawerLayout);
+        DrawerLayout back= (DrawerLayout) findViewById(R.id.non_tech);
         if (back.isDrawerOpen(GravityCompat.START)) {
             back.closeDrawer(GravityCompat.START);
         }
@@ -69,18 +69,22 @@ public class Non_tech extends AppCompatActivity implements NavigationView.OnNavi
         {
             case R.id.nav_tech:
                 Intent i = new Intent(this,Tech.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
                 break;
             case R.id.nav_nontech:
                 Intent i2 = new Intent(this,Non_tech.class);
+                i2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i2);
                 break;
             case R.id.nav_about:
                 Intent i3 = new Intent(this,About.class);
+                i3.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i3);
                 break;
             case R.id.nav_Dev:
                 Intent i4 = new Intent(this,Dev.class);
+                i4.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i4);
                 break;
             case R.id.nav_logout:
