@@ -68,25 +68,18 @@ public class Non_tech extends AppCompatActivity implements NavigationView.OnNavi
         switch(id)
         {
             case R.id.nav_tech:
-                Intent i = new Intent(this,Tech.class);
-                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(i);
+                startActivity(new Intent(this, Tech.class));
                 break;
             case R.id.nav_nontech:
-                Intent i2 = new Intent(this,Non_tech.class);
-                i2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(i2);
+                startActivity(new Intent(this, Non_tech.class));
                 break;
             case R.id.nav_about:
-                Intent i3 = new Intent(this,About.class);
-                i3.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(i3);
+                startActivity(new Intent(this, About.class));
                 break;
             case R.id.nav_Dev:
-                Intent i4 = new Intent(this,Dev.class);
-                i4.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(i4);
+                startActivity(new Intent(this, Dev.class));
                 break;
+
             case R.id.nav_logout:
                 firebaseAuth.signOut();
                 if (firebaseAuth.getCurrentUser() == null)
@@ -95,7 +88,7 @@ public class Non_tech extends AppCompatActivity implements NavigationView.OnNavi
                     finish();
                 }
         }
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawerLayout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.non_tech);
         drawer.closeDrawer(GravityCompat.START);
     }
 

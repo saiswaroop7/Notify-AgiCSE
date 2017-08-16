@@ -71,24 +71,16 @@ public class Dev extends AppCompatActivity implements NavigationView.OnNavigatio
         switch(id)
         {
             case R.id.nav_tech:
-                Intent i = new Intent(getApplicationContext(),Tech.class);
-                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(i);finish();
+                startActivity(new Intent(this, Tech.class));
                 break;
             case R.id.nav_nontech:
-                Intent i2 = new Intent(getApplicationContext(),Non_tech.class);
-                i2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(i2);finish();
+                startActivity(new Intent(this, Non_tech.class));
                 break;
             case R.id.nav_about:
-                Intent i3 = new Intent(getApplicationContext(),About.class);
-                i3.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(i3);finish();
+                startActivity(new Intent(this, About.class));
                 break;
             case R.id.nav_Dev:
-                Intent i4 = new Intent(getApplicationContext(),Dev.class);
-                i4.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(i4);finish();
+                startActivity(new Intent(this, Dev.class));
                 break;
 
             case R.id.nav_logout:
@@ -99,7 +91,7 @@ public class Dev extends AppCompatActivity implements NavigationView.OnNavigatio
                     finish();
                 }
         }
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawerLayout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.dev);
         drawer.closeDrawer(GravityCompat.START);
     }
 

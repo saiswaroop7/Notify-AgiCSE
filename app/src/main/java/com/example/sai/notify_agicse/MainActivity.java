@@ -50,9 +50,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         DrawerLayout back = (DrawerLayout) findViewById(R.id.drawerLayout);
         if (back.isDrawerOpen(GravityCompat.START)) {
             back.closeDrawer(GravityCompat.START);
-        } else if  (back_pressed + 2000 > System.currentTimeMillis()) {super.onBackPressed();}
-        else
-        Toast.makeText(getBaseContext(), "Press again to exit", Toast.LENGTH_SHORT).show();
+        } else if (back_pressed + 2000 > System.currentTimeMillis()) {
+            super.onBackPressed();
+        } else
+            Toast.makeText(getBaseContext(), "Press again to exit", Toast.LENGTH_SHORT).show();
         back_pressed = System.currentTimeMillis();
     }
 
@@ -72,22 +73,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_tech:
                 Intent i = new Intent(MainActivity.this, Tech.class);
                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(i);finish();
+                startActivity(i);
+                finish();
                 break;
             case R.id.nav_nontech:
                 Intent i2 = new Intent(MainActivity.this, Non_tech.class);
                 i2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(i2);finish();
+                startActivity(i2);
+                finish();
                 break;
             case R.id.nav_about:
                 Intent i3 = new Intent(getApplicationContext(), About.class);
                 i3.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(i3);finish();
+                startActivity(i3);
+                finish();
                 break;
             case R.id.nav_Dev:
                 Intent i4 = new Intent(MainActivity.this, Dev.class);
                 i4.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(i4);finish();
+                startActivity(i4);
+                finish();
                 break;
             case R.id.nav_logout:
                 firebaseAuth.signOut();

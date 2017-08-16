@@ -21,6 +21,8 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import static java.lang.Thread.sleep;
 
@@ -36,13 +38,16 @@ public class Tech extends AppCompatActivity implements NavigationView.OnNavigati
     NavigationView nv;
     private FirebaseAuth firebaseAuth;
     private static long back_pressed;
+    private FirebaseDatabase firebaseDatabase;
+    private DatabaseReference databaseReference;
     @Override
     protected  void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tech);
         firebaseAuth = FirebaseAuth.getInstance();
-        FirebaseUser user = firebaseAuth.getCurrentUser();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReferenceFromUrl("https://notify-agicse.firebaseio.com/Users");
         mDrawerLayout = (DrawerLayout) findViewById(R.id.tech);
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close);
         mDrawerLayout.setDrawerListener(mToggle);
@@ -78,24 +83,16 @@ public class Tech extends AppCompatActivity implements NavigationView.OnNavigati
         {
 
             case R.id.nav_tech:
-                Intent i = new Intent(getApplicationContext(),Tech.class);
-                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(i);
+                startActivity(new Intent(this, Tech.class));
                 break;
             case R.id.nav_nontech:
-                Intent i2 = new Intent(getApplicationContext(),Non_tech.class);
-                i2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(i2);
+                startActivity(new Intent(this, Non_tech.class));
                 break;
             case R.id.nav_about:
-                Intent i3 = new Intent(getApplicationContext(),About.class);
-                i3.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(i3);
+                startActivity(new Intent(this, About.class));
                 break;
             case R.id.nav_Dev:
-                Intent i4 = new Intent(getApplicationContext(),Dev.class);
-                i4.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(i4);
+                startActivity(new Intent(this, Dev.class));
                 break;
             case R.id.nav_logout:
                 firebaseAuth.signOut();
@@ -106,7 +103,7 @@ public class Tech extends AppCompatActivity implements NavigationView.OnNavigati
                 }
 
         }
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawerLayout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.tech);
         drawer.closeDrawer(GravityCompat.START);
     }
 
