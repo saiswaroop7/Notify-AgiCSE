@@ -25,10 +25,11 @@
          android:id="@+id/tv_event1"/>
     <ImageButton
         android:layout_width="match_parent"
-        android:layout_height="170dp"
+        android:layout_height="match_parent"
         android:fitsSystemWindows="true"
         android:src="@drawable/ignite_technical"
         android:id="@+id/event1"
+        android:scaleType = "fitXY"
         android:layout_below="@+id/tv_event1"
         android:layout_marginTop="20dp" />
 
@@ -44,8 +45,9 @@
 
         <ImageButton
             android:layout_width="match_parent"
-            android:layout_height="170dp"
+            android:layout_height="match_parent"
             android:src="@drawable/photoshop"
+            android:scaleType = "fitXY"
             android:id="@+id/event2"
             android:layout_below="@+id/tv_event2" />
 
@@ -60,8 +62,9 @@
             android:id="@+id/tv_event3"/>
         <ImageButton
             android:layout_width="match_parent"
-            android:layout_height="170dp"
+            android:layout_height="match_parent"
             android:src="@drawable/electronique"
+            android:scaleType = "fitXY"
             android:id="@+id/event3"
             android:layout_below="@+id/tv_event3" />
     </RelativeLayout>

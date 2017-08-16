@@ -67,11 +67,12 @@ public class Non_tech extends AppCompatActivity implements NavigationView.OnNavi
     private void displaySelectedScreen(int id){
         switch(id)
         {
+
+            case R.id.nav_home:
+                startActivity(new Intent(this, MainActivity.class));
+                break;
             case R.id.nav_tech:
                 startActivity(new Intent(this, Tech.class));
-                break;
-            case R.id.nav_nontech:
-                startActivity(new Intent(this, Non_tech.class));
                 break;
             case R.id.nav_about:
                 startActivity(new Intent(this, About.class));

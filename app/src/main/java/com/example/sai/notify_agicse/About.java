@@ -70,17 +70,17 @@ public class About extends AppCompatActivity implements NavigationView.OnNavigat
     private void displaySelectedScreen(int id){
         switch(id)
         {
+            case R.id.nav_home:
+                startActivity(new Intent(this, MainActivity.class));finish();
+                break;
             case R.id.nav_tech:
-                startActivity(new Intent(this, Tech.class));
+                startActivity(new Intent(this, Tech.class));finish();
                 break;
             case R.id.nav_nontech:
-                startActivity(new Intent(this, Non_tech.class));
-                break;
-            case R.id.nav_about:
-                startActivity(new Intent(this, About.class));
+                startActivity(new Intent(this, Non_tech.class));finish();
                 break;
             case R.id.nav_Dev:
-                startActivity(new Intent(this, Dev.class));
+                startActivity(new Intent(this, Dev.class));finish();
                 break;
 
             case R.id.nav_logout:

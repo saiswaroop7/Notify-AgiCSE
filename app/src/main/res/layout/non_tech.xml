@@ -29,6 +29,7 @@
                 android:fitsSystemWindows="true"
                 android:src="@drawable/aagama"
                 android:id="@+id/event1"
+                android:scaleType = "fitXY"
                 android:layout_below="@+id/tv_event1"
                 android:layout_marginTop="15dp" />
 
@@ -43,12 +44,13 @@
                 android:id="@+id/tv_event2"/>
 
             <ImageButton
+                android:id="@+id/event2"
                 android:layout_width="match_parent"
                 android:layout_height="170dp"
-                android:src="@drawable/rasaayanika"
-                android:id="@+id/event2"
                 android:layout_below="@+id/tv_event2"
-                android:layout_marginTop="15dp"/>
+                android:layout_marginTop="15dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/rasaayanika" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -64,6 +66,7 @@
                 android:layout_height="170dp"
                 android:src="@drawable/sports_bout"
                 android:id="@+id/event3"
+                android:scaleType = "fitXY"
                 android:layout_marginTop="15dp"
                 android:layout_below="@+id/tv_event3" />
         </RelativeLayout>

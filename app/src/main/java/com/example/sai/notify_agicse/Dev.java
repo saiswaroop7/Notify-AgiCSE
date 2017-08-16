@@ -23,16 +23,15 @@ import com.google.firebase.auth.FirebaseUser;
  * Created by Sai on 26-07-2017.
  */
 
-public class Dev extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
-{
+public class Dev extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     DrawerLayout mDrawerLayout;
     ActionBarDrawerToggle mToggle;
     NavigationView nv;
     private FirebaseAuth firebaseAuth;
     private static long back_pressed;
+
     @Override
-    protected  void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dev);
         firebaseAuth = FirebaseAuth.getInstance();
@@ -42,51 +41,49 @@ public class Dev extends AppCompatActivity implements NavigationView.OnNavigatio
         mDrawerLayout.setDrawerListener(mToggle);
         mToggle.syncState();
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        nv= (NavigationView) findViewById(R.id.nav_view);
+        nv = (NavigationView) findViewById(R.id.nav_view);
         nv.setNavigationItemSelectedListener(this);
     }
 
     @Override
-    public void onBackPressed(){
-        DrawerLayout back= (DrawerLayout) findViewById(R.id.dev);
+    public void onBackPressed() {
+        DrawerLayout back = (DrawerLayout) findViewById(R.id.dev);
         if (back.isDrawerOpen(GravityCompat.START)) {
             back.closeDrawer(GravityCompat.START);
-        }
-        else if  (back_pressed + 2000 > System.currentTimeMillis()) {super.onBackPressed();}
-        else
+        } else if (back_pressed + 2000 > System.currentTimeMillis()) {
+            super.onBackPressed();
+        } else
             Toast.makeText(getBaseContext(), "Press again to exit", Toast.LENGTH_SHORT).show();
         back_pressed = System.currentTimeMillis();
     }
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item){
-        int id=item.getItemId();
+    public boolean onNavigationItemSelected(MenuItem item) {
+        int id = item.getItemId();
         displaySelectedScreen(id);
 
         return true;
     }
 
 
-    private void displaySelectedScreen(int id){
-        switch(id)
-        {
+    private void displaySelectedScreen(int id) {
+        switch (id) {
+            case R.id.nav_home:
+                startActivity(new Intent(this, MainActivity.class));finish();
+                break;
             case R.id.nav_tech:
-                startActivity(new Intent(this, Tech.class));
+                startActivity(new Intent(this, Tech.class));finish();
                 break;
             case R.id.nav_nontech:
-                startActivity(new Intent(this, Non_tech.class));
+                startActivity(new Intent(this, Non_tech.class));finish();
                 break;
             case R.id.nav_about:
-                startActivity(new Intent(this, About.class));
+                startActivity(new Intent(this, About.class));finish();
                 break;
-            case R.id.nav_Dev:
-                startActivity(new Intent(this, Dev.class));
-                break;
-
             case R.id.nav_logout:
                 firebaseAuth.signOut();
-                if (firebaseAuth.getCurrentUser() == null)
-                {
+                if (firebaseAuth.getCurrentUser() == null) {
                     startActivity(new Intent(this, Login.class));
                     finish();
                 }
@@ -97,8 +94,7 @@ public class Dev extends AppCompatActivity implements NavigationView.OnNavigatio
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (mToggle.onOptionsItemSelected(item))
-        {
+        if (mToggle.onOptionsItemSelected(item)) {
             return mToggle.onOptionsItemSelected(item);
         }
         return super.onOptionsItemSelected(item);

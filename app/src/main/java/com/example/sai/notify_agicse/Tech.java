@@ -82,8 +82,8 @@ public class Tech extends AppCompatActivity implements NavigationView.OnNavigati
         switch(id)
         {
 
-            case R.id.nav_tech:
-                startActivity(new Intent(this, Tech.class));
+            case R.id.nav_home:
+                startActivity(new Intent(this, MainActivity.class));
                 break;
             case R.id.nav_nontech:
                 startActivity(new Intent(this, Non_tech.class));

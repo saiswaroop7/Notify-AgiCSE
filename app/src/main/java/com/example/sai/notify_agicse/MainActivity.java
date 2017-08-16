@@ -67,31 +67,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-
     private void displaySelectedScreen(int id) {
         switch (id) {
             case R.id.nav_tech:
-                Intent i = new Intent(MainActivity.this, Tech.class);
-                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(i);
+                startActivity(new Intent(this, Tech.class));
                 finish();
                 break;
             case R.id.nav_nontech:
-                Intent i2 = new Intent(MainActivity.this, Non_tech.class);
-                i2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(i2);
+                startActivity(new Intent(this, Non_tech.class));
                 finish();
                 break;
             case R.id.nav_about:
-                Intent i3 = new Intent(getApplicationContext(), About.class);
-                i3.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(i3);
+                startActivity(new Intent(this, About.class));
                 finish();
                 break;
             case R.id.nav_Dev:
-                Intent i4 = new Intent(MainActivity.this, Dev.class);
-                i4.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(i4);
+                startActivity(new Intent(this, Dev.class));
                 finish();
                 break;
             case R.id.nav_logout:
