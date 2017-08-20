@@ -52,6 +52,15 @@ public class Tech extends AppCompatActivity implements NavigationView.OnNavigati
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close);
         mDrawerLayout.setDrawerListener(mToggle);
         mToggle.syncState();
+        ImageButton i1= (ImageButton) findViewById(R.id.event1);
+        i1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String id = firebaseAuth.getInstance().getCurrentUser().getUid();
+                databaseReference.child(id).child("event").setValue("11/11/2017");
+                Toast.makeText(getApplicationContext(),"You will be notified",Toast.LENGTH_SHORT).show();
+            }
+        });
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         nv= (NavigationView) findViewById(R.id.nav_view);
         nv.setNavigationItemSelectedListener(this);
