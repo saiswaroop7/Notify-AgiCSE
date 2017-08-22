@@ -22,9 +22,9 @@ import com.google.firebase.auth.FirebaseAuth;
  */
 
 public class Login extends AppCompatActivity {
+    String mail, pass;
     private EditText email;
     private EditText password;
-    String mail, pass;
     private FirebaseAuth firebaseAuth;
     private ProgressDialog progressDialog;
 
@@ -102,6 +102,5 @@ public class Login extends AppCompatActivity {
 
         return valid;
     }
-
 
 }

@@ -24,10 +24,10 @@ import com.google.firebase.database.FirebaseDatabase;
  */
 
 public class Register extends AppCompatActivity {
+    String mail, pass, fname, repassword, id;
     private EditText email,name,password,repass;
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
-    String mail,pass,fname,repassword;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReference;
     public void onCreate(Bundle savedInstanceState)
@@ -66,12 +66,12 @@ public class Register extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful())
                 {
-                    DatabaseReference id = databaseReference.push();
-                    id.child("Email").setValue(email.getText().toString());
-                    id.child("First Name").setValue(name.getText().toString());
+
+                    id = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                    databaseReference.child(id).child("Email").setValue(email.getText().toString());
+                    databaseReference.child(id).child("Password").setValue(password.getText().toString());
+                    databaseReference.child(id).child("Name").setValue(name.getText().toString());
                     Toast.makeText(Register.this,"Registration Successful",Toast.LENGTH_SHORT).show();
-                    email.setText("");
-                    name.setText("");
                     Intent i = new Intent(getApplicationContext(), Login.class);
                     startActivity(i);
                     finish();

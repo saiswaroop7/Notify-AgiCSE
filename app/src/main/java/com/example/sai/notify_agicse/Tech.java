@@ -33,11 +33,11 @@ import static java.lang.Thread.sleep;
 public class Tech extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
 {
 
+    private static long back_pressed;
     DrawerLayout mDrawerLayout;
     ActionBarDrawerToggle mToggle;
     NavigationView nv;
     private FirebaseAuth firebaseAuth;
-    private static long back_pressed;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReference;
     @Override
@@ -58,7 +58,7 @@ public class Tech extends AppCompatActivity implements NavigationView.OnNavigati
             public void onClick(View v) {
                 String id = firebaseAuth.getInstance().getCurrentUser().getUid();
                 databaseReference.child(id).child("event").setValue("11/11/2017");
-                Toast.makeText(getApplicationContext(),"You will be notified",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "You will be notified", Toast.LENGTH_LONG).show();
             }
         });
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
