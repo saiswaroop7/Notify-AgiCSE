@@ -23,11 +23,12 @@ import com.google.firebase.auth.FirebaseUser;
  */
 public class Non_tech extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
 {
+    private static long back_pressed;
     DrawerLayout mDrawerLayout;
     ActionBarDrawerToggle mToggle;
     NavigationView nv;
     private FirebaseAuth firebaseAuth;
-    private static long back_pressed;
+
     @Override
     protected  void onCreate(Bundle savedInstanceState)
     {
@@ -48,8 +49,10 @@ public class Non_tech extends AppCompatActivity implements NavigationView.OnNavi
         DrawerLayout back= (DrawerLayout) findViewById(R.id.non_tech);
         if (back.isDrawerOpen(GravityCompat.START)) {
             back.closeDrawer(GravityCompat.START);
+        } else if (back_pressed + 2000 > System.currentTimeMillis()) {
+            super.onBackPressed();
+            firebaseAuth.signOut();
         }
-        else if  (back_pressed + 2000 > System.currentTimeMillis()) {super.onBackPressed();}
         else
             Toast.makeText(getBaseContext(), "Press again to exit", Toast.LENGTH_SHORT).show();
         back_pressed = System.currentTimeMillis();

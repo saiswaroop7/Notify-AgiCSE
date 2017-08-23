@@ -30,8 +30,7 @@ import static java.lang.Thread.sleep;
  * Created by Sai on 26-07-2017.
  */
 
-public class Tech extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
-{
+public class Tech extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private static long back_pressed;
     DrawerLayout mDrawerLayout;
@@ -40,9 +39,9 @@ public class Tech extends AppCompatActivity implements NavigationView.OnNavigati
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReference;
+
     @Override
-    protected  void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tech);
         firebaseAuth = FirebaseAuth.getInstance();
@@ -52,7 +51,7 @@ public class Tech extends AppCompatActivity implements NavigationView.OnNavigati
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close);
         mDrawerLayout.setDrawerListener(mToggle);
         mToggle.syncState();
-        ImageButton i1= (ImageButton) findViewById(R.id.event1);
+        ImageButton i1 = (ImageButton) findViewById(R.id.event1);
         i1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,34 +61,35 @@ public class Tech extends AppCompatActivity implements NavigationView.OnNavigati
             }
         });
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        nv= (NavigationView) findViewById(R.id.nav_view);
+        nv = (NavigationView) findViewById(R.id.nav_view);
         nv.setNavigationItemSelectedListener(this);
     }
 
     @Override
-    public void onBackPressed(){
-        DrawerLayout back= (DrawerLayout) findViewById(R.id.tech);
+    public void onBackPressed() {
+        DrawerLayout back = (DrawerLayout) findViewById(R.id.tech);
         if (back.isDrawerOpen(GravityCompat.START)) {
             back.closeDrawer(GravityCompat.START);
-        }
-        else if  (back_pressed + 2000 > System.currentTimeMillis()) {super.onBackPressed();}
-        else
+        } else if (back_pressed + 2000 > System.currentTimeMillis()) {
+            super.onBackPressed();
+            firebaseAuth.signOut();
+        } else
             Toast.makeText(getBaseContext(), "Press again to exit", Toast.LENGTH_SHORT).show();
-            back_pressed = System.currentTimeMillis();
+        back_pressed = System.currentTimeMillis();
     }
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item){
-        int id=item.getItemId();
+    public boolean onNavigationItemSelected(MenuItem item) {
+        int id = item.getItemId();
         displaySelectedScreen(id);
 
         return true;
     }
 
 
-    private void displaySelectedScreen(int id){
-        switch(id)
-        {
+    private void displaySelectedScreen(int id) {
+        switch (id) {
 
             case R.id.nav_home:
                 startActivity(new Intent(this, MainActivity.class));
@@ -105,8 +105,7 @@ public class Tech extends AppCompatActivity implements NavigationView.OnNavigati
                 break;
             case R.id.nav_logout:
                 firebaseAuth.signOut();
-                if (firebaseAuth.getCurrentUser() == null)
-                {
+                if (firebaseAuth.getCurrentUser() == null) {
                     startActivity(new Intent(this, Login.class));
                     finish();
                 }
@@ -118,8 +117,7 @@ public class Tech extends AppCompatActivity implements NavigationView.OnNavigati
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (mToggle.onOptionsItemSelected(item))
-        {
+        if (mToggle.onOptionsItemSelected(item)) {
             return mToggle.onOptionsItemSelected(item);
         }
         return super.onOptionsItemSelected(item);

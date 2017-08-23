@@ -25,13 +25,13 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class Register extends AppCompatActivity {
     String mail, pass, fname, repassword, id;
-    private EditText email,name,password,repass;
+    private EditText email, name, password, repass;
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReference;
-    public void onCreate(Bundle savedInstanceState)
-    {
+
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register);
         progressDialog = new ProgressDialog(this);
@@ -39,52 +39,49 @@ public class Register extends AppCompatActivity {
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReferenceFromUrl("https://notify-agicse.firebaseio.com/Users");
         Button b1 = (Button) findViewById(R.id.registration);
-        email=(EditText) findViewById(R.id.input_email);
-        repass=(EditText) findViewById(R.id.input_repassword);
-        password=(EditText) findViewById(R.id.input_password);
-        name=(EditText) findViewById(R.id.input_name);
-        b1.setOnClickListener(new View.OnClickListener(){
+        email = (EditText) findViewById(R.id.input_email);
+        repass = (EditText) findViewById(R.id.input_repassword);
+        password = (EditText) findViewById(R.id.input_password);
+        name = (EditText) findViewById(R.id.input_name);
+        b1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 register();
-                if(!register())
-                {
-                    Toast.makeText(getApplicationContext(),"Registration Error",Toast.LENGTH_SHORT).show();
+                if (!register()) {
+                    Toast.makeText(getApplicationContext(), "Registration Error", Toast.LENGTH_SHORT).show();
                     progressDialog.dismiss();
-                }
-                else {
+                } else {
                     Success();
                 }
             }
         });
     }
+
     public void Success() {
         progressDialog.setMessage("Registering User");
         progressDialog.show();
-        firebaseAuth.createUserWithEmailAndPassword(mail,pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        firebaseAuth.createUserWithEmailAndPassword(mail, pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful())
-                {
+                if (task.isSuccessful()) {
 
                     id = FirebaseAuth.getInstance().getCurrentUser().getUid();
                     databaseReference.child(id).child("Email").setValue(email.getText().toString());
                     databaseReference.child(id).child("Password").setValue(password.getText().toString());
                     databaseReference.child(id).child("Name").setValue(name.getText().toString());
-                    Toast.makeText(Register.this,"Registration Successful",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Register.this, "Registration Successful", Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(getApplicationContext(), Login.class);
                     startActivity(i);
                     finish();
-                }
-                else {
-                    Toast.makeText(Register.this,"Registration Error. Please try again",Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(Register.this, "Registration Error. Please try again", Toast.LENGTH_LONG).show();
                     progressDialog.dismiss();
                 }
             }
         });
     }
-    public boolean register()
-    {
+
+    public boolean register() {
         mail = email.getText().toString().trim();
         pass = password.getText().toString().trim();
         repassword = repass.getText().toString();
@@ -96,8 +93,7 @@ public class Register extends AppCompatActivity {
         } else {
             email.setError(null);
         }
-        if (fname.isEmpty())
-        {
+        if (fname.isEmpty()) {
             name.setError("Field must not be empty");
             valid = false;
         } else {
@@ -110,12 +106,10 @@ public class Register extends AppCompatActivity {
         } else {
             password.setError(null);
         }
-        if(!pass.equals(repassword))
-        {
+        if (!pass.equals(repassword)) {
             repass.setError("Password does not match");
-            valid=false;
-        }
-        else {
+            valid = false;
+        } else {
             repass.setError(null);
         }
         return valid;
