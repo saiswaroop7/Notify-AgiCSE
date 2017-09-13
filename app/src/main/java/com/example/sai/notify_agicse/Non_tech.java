@@ -212,8 +212,8 @@ public class Non_tech extends AppCompatActivity implements NavigationView.OnNavi
         if (back.isDrawerOpen(GravityCompat.START)) {
             back.closeDrawer(GravityCompat.START);
         } else if (back_pressed + 2000 > System.currentTimeMillis()) {
-            super.onBackPressed();
             firebaseAuth.signOut();
+            super.onBackPressed();
         } else
             Toast.makeText(getBaseContext(), "Press again to exit", Toast.LENGTH_SHORT).show();
         back_pressed = System.currentTimeMillis();
@@ -234,20 +234,24 @@ public class Non_tech extends AppCompatActivity implements NavigationView.OnNavi
 
             case R.id.nav_home:
                 startActivity(new Intent(this, MainActivity.class));
+                finish();
                 break;
             case R.id.nav_tech:
                 startActivity(new Intent(this, Tech.class));
+                finish();
                 break;
             case R.id.nav_about:
                 startActivity(new Intent(this, About.class));
+                finish();
                 break;
             case R.id.nav_settings:
                 startActivity(new Intent(this, Settings.class));
+                finish();
                 break;
             case R.id.nav_Dev:
                 startActivity(new Intent(this, Dev.class));
+                finish();
                 break;
-
             case R.id.nav_logout:
                 firebaseAuth.signOut();
                 if (firebaseAuth.getCurrentUser() == null) {

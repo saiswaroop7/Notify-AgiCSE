@@ -48,7 +48,6 @@ public class Register extends AppCompatActivity {
             public void onClick(View v) {
                 register();
                 if (!register()) {
-                    Toast.makeText(getApplicationContext(), "Registration Error", Toast.LENGTH_SHORT).show();
                     progressDialog.dismiss();
                 } else {
                     Success();

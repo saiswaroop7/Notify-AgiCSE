@@ -22,13 +22,13 @@
         <activity
             android:name=".Login"
             android:label="@string/bar"
-            android:theme="@style/AppTheme"
+            android:theme="@style/login"
             android:windowSoftInputMode="stateHidden">
         </activity>
         <activity
             android:name=".Register"
             android:label="@string/bar"
-            android:theme="@style/AppTheme"
+            android:theme="@style/login"
             android:windowSoftInputMode="stateHidden"></activity>
         <activity
             android:name=".MainActivity"

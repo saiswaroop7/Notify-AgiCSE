@@ -54,7 +54,6 @@ public class Login extends AppCompatActivity {
             public void onClick(View v) {
                 userLogin();
                 if (!userLogin()) {
-                    Toast.makeText(getApplicationContext(), "Login Failed. Please Enter Valid Details", Toast.LENGTH_SHORT).show();
                     progressDialog.dismiss();
                 } else {
                     Success();

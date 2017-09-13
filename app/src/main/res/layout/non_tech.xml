@@ -4,12 +4,12 @@
     android:id="@+id/non_tech"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#78909C"
     android:orientation="vertical">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <RelativeLayout
             android:id="@+id/non_tech_relative"
             android:layout_width="match_parent"
@@ -21,7 +21,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="20dp"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                android:textColor="#2d2a2a"
+                android:textColor="@color/primaryTextColor"
                 android:textStyle="bold"
                 android:typeface="sans" />
 
@@ -43,7 +43,7 @@
                 android:layout_below="@+id/event1_view"
                 android:paddingBottom="20dp"
                 android:paddingTop="20dp"
-                android:textColor="#2d2a2a"
+                android:textColor="@color/primaryTextColor"
                 android:textSize="17sp"
                 android:typeface="sans" />
 
@@ -53,6 +53,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_below="@+id/info_event1"
+                android:background="@drawable/button_events"
                 android:text="Notify" />
 
             <TextView
@@ -63,7 +64,7 @@
                 android:paddingBottom="20dp"
                 android:paddingTop="20dp"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                android:textColor="#2d2a2a"
+                android:textColor="@color/primaryTextColor"
                 android:textStyle="bold"
                 android:typeface="sans" />
 
@@ -84,7 +85,7 @@
                 android:layout_below="@+id/event2_view"
                 android:paddingBottom="20dp"
                 android:paddingTop="20dp"
-                android:textColor="#2d2a2a"
+                android:textColor="@color/primaryTextColor"
                 android:textSize="17sp"
                 android:typeface="sans" />
 
@@ -94,6 +95,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_below="@+id/info_event2"
+                android:background="@drawable/button_events"
                 android:text="Notify" />
 
             <TextView
@@ -104,7 +106,7 @@
                 android:paddingBottom="20dp"
                 android:paddingTop="20dp"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                android:textColor="#2d2a2a"
+                android:textColor="@color/primaryTextColor"
                 android:textStyle="bold"
                 android:typeface="sans" />
 
@@ -125,7 +127,7 @@
                 android:layout_below="@+id/event3_view"
                 android:paddingBottom="20dp"
                 android:paddingTop="20dp"
-                android:textColor="#2d2a2a"
+                android:textColor="@color/primaryTextColor"
                 android:textSize="17sp"
                 android:typeface="sans" />
 
@@ -135,17 +137,18 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_below="@+id/info_event3"
+                android:background="@drawable/button_events"
                 android:text="Notify" />
         </RelativeLayout>
     </ScrollView>
+
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:headerLayout="@layout/navigation_header"
-        app:menu="@menu/navigation_menu"
-        >
+        app:menu="@menu/navigation_menu">
 
     </android.support.design.widget.NavigationView>
 </android.support.v4.widget.DrawerLayout>

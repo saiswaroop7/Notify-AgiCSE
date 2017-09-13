@@ -28,8 +28,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import static android.R.attr.name;
-import static android.R.attr.password;
 
 /**
  * Created by Sai on 13-09-2017.
@@ -141,8 +139,8 @@ public class Settings extends AppCompatActivity implements NavigationView.OnNavi
         if (back.isDrawerOpen(GravityCompat.START)) {
             back.closeDrawer(GravityCompat.START);
         } else if (back_pressed + 2000 > System.currentTimeMillis()) {
-            super.onBackPressed();
             firebaseAuth.signOut();
+            super.onBackPressed();
         } else
             Toast.makeText(getBaseContext(), "Press again to exit", Toast.LENGTH_SHORT).show();
         back_pressed = System.currentTimeMillis();

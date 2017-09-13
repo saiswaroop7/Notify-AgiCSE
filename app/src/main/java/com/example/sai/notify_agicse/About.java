@@ -75,8 +75,8 @@ public class About extends AppCompatActivity implements NavigationView.OnNavigat
         if (back.isDrawerOpen(GravityCompat.START)) {
             back.closeDrawer(GravityCompat.START);
         } else if (back_pressed + 2000 > System.currentTimeMillis()) {
-            super.onBackPressed();
             firebaseAuth.signOut();
+            super.onBackPressed();
         }
         else
             Toast.makeText(getBaseContext(), "Press again to exit", Toast.LENGTH_SHORT).show();

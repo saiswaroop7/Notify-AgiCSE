@@ -4,7 +4,6 @@
     android:id="@+id/about"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#2d2a2a"
     android:orientation="vertical">
 
     <TextView
@@ -15,8 +14,8 @@
         android:layout_centerVertical="true"
         android:paddingTop="50dp"
         android:text="The Notify-agicse is an android application software which allows users to access the information about the various events, news and updates in the CSE department. The main goal of this project is to keep the users updated about the activities which are taking place in the college. It provides information on the workshops, seminars and other major events which are conducted in the college. It acts as a mobile version of the college website for the CSE department. Whenever a new event is hosted, this app immediately alerts the users in the form of notifications."
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-        android:textColor="#fffefa"
+        android:textColor="@color/primaryTextColor"
+        android:textSize="20sp"
         />
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
