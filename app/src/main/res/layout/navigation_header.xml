@@ -7,9 +7,9 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="130dp"
+        android:layout_height="120dp"
         android:scaleType="fitXY"
-        android:src="@drawable/nav_header" />
+        android:src="@drawable/notify_agicse" />
 
     <TextView
         android:id="@+id/header_tv"

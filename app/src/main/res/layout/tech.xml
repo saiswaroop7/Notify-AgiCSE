@@ -53,6 +53,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_below="@+id/info_event1"
+                android:layout_marginRight="20dp"
                 android:background="@drawable/button_events"
                 android:text="Notify" />
 
@@ -95,6 +96,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_below="@+id/info_event2"
+                android:layout_marginRight="20dp"
                 android:background="@drawable/button_events"
                 android:text="Notify" />
 
@@ -137,6 +139,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_below="@+id/info_event3"
+                android:layout_marginBottom="15dp"
+                android:layout_marginRight="20dp"
                 android:background="@drawable/button_events"
                 android:text="Notify" />
         </RelativeLayout>

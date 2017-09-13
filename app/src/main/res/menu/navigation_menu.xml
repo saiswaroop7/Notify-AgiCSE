@@ -21,7 +21,7 @@
         <item
             android:id="@+id/nav_Dev"
             android:icon="@mipmap/dev"
-            android:title="Developers" />
+            android:title="Contact Us" />
         <item
             android:id="@+id/nav_settings"
             android:icon="@mipmap/settings"
