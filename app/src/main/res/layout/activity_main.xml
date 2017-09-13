@@ -5,7 +5,7 @@
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#78909C"
+    android:background="#3c7b81"
     tools:context="com.example.sai.notify_agicse.MainActivity">
 <ScrollView
     android:layout_width="match_parent"
@@ -16,34 +16,34 @@
         android:weightSum="1">
 
         <TextView
+            android:id="@+id/tv_about"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
-            android:id="@+id/tv_about"
-            android:textSize="30sp"
-            android:textColor="#2d2a2a"
-            android:layout_marginTop="25dp"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="20dp"
+            android:text=""
+            android:textColor="#78909C"
+            android:textSize="30sp" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_about"
-            android:textSize="22sp"
             android:layout_marginTop="20dp"
+            android:text="Department of Computer Science and Engineering (CSE) was established in 2002 and accredited by NBA in 2009. The CSE department has been re-accredited by NBA in 2017, which is valid till 2020. From the inception the department is relentlessly working hard with commitment to provide best quality education. It has been recognized as one of the best learning centers. In addition to this, CSE Department consists of various number of technical clubs like Android Club, Web club etc."
             android:textColor="#e2dede"
-            android:text="Department of Computer Science and Engineering (CSE) was established in 2002 and accredited by NBA in 2009. The CSE department has been re-accredited by NBA in 2017, which is valid till 2020. From the inception the department is relentlessly working hard with commitment to provide best quality education. It has been recognized as one of the best learning centers and attracted the creamy layer of the students."/>
+            android:textSize="22sp" />
 
     </RelativeLayout>
 </ScrollView>
 
     <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:id="@+id/nav_view"
-        app:menu="@menu/navigation_menu"
         app:headerLayout="@layout/navigation_header"
+        app:menu="@menu/navigation_menu"
         >
 
     </android.support.design.widget.NavigationView>

@@ -1,34 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-<group android:checkableBehavior="single">
-    <item
-        android:id="@+id/nav_home"
-        android:title="Home"
-        android:icon="@mipmap/home"/>
-<item
-    android:id="@+id/nav_tech"
-    android:title="Technical Events"
-    android:icon="@mipmap/tech" />
-<item
-    android:id="@+id/nav_nontech"
-    android:title="Non Technical Events"
-    android:icon="@mipmap/non_tech"/>
-<item
-    android:id="@+id/nav_about"
-    android:title="About"
-    android:icon="@mipmap/about"/>
-<item
-        android:id="@+id/nav_Dev"
-        android:title="Developers"
-        android:icon="@mipmap/dev"/>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@mipmap/home"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_tech"
+            android:icon="@mipmap/tech"
+            android:title="Technical Events" />
+        <item
+            android:id="@+id/nav_nontech"
+            android:icon="@mipmap/non_tech"
+            android:title="Non Technical Events" />
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@mipmap/about"
+            android:title="About" />
+        <item
+            android:id="@+id/nav_Dev"
+            android:icon="@mipmap/dev"
+            android:title="Developers" />
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@mipmap/settings"
+            android:title="Settings" />
 
-    <item
-        android:id="@+id/nav_logout"
-        android:title="Logout"
-        android:icon="@mipmap/logout_power"/>
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@mipmap/logout_power"
+            android:title="Logout" />
 
-</group>
+    </group>
 
 
 </menu>

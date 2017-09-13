@@ -14,10 +14,16 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 /**
  * Created by Sai on 26-07-2017.
@@ -28,6 +34,8 @@ public class Dev extends AppCompatActivity implements NavigationView.OnNavigatio
     DrawerLayout mDrawerLayout;
     ActionBarDrawerToggle mToggle;
     NavigationView nv;
+    DatabaseReference ref;
+    String userid;
     private FirebaseAuth firebaseAuth;
 
     @Override
@@ -35,11 +43,25 @@ public class Dev extends AppCompatActivity implements NavigationView.OnNavigatio
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dev);
         firebaseAuth = FirebaseAuth.getInstance();
-        FirebaseUser user = firebaseAuth.getCurrentUser();
+        ref = FirebaseDatabase.getInstance().getReference("Users");
         mDrawerLayout = (DrawerLayout) findViewById(R.id.dev);
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close);
         mDrawerLayout.setDrawerListener(mToggle);
         mToggle.syncState();
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String id = firebaseAuth.getInstance().getCurrentUser().getUid();
+                userid = dataSnapshot.child(id).child("Name").getValue().toString();
+                TextView textView = (TextView) findViewById(R.id.header_tv);
+                textView.setText("Welcome, " + userid);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         nv = (NavigationView) findViewById(R.id.nav_view);
         nv.setNavigationItemSelectedListener(this);
@@ -81,6 +103,10 @@ public class Dev extends AppCompatActivity implements NavigationView.OnNavigatio
                 break;
             case R.id.nav_about:
                 startActivity(new Intent(this, About.class));finish();
+                break;
+            case R.id.nav_settings:
+                startActivity(new Intent(this, Settings.class));
+                finish();
                 break;
             case R.id.nav_logout:
                 firebaseAuth.signOut();

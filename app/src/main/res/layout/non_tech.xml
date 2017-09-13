@@ -20,58 +20,122 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="20dp"
-                android:text="AAGAMA :"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                android:textColor="#2d2a2a" />
-            <ImageButton
-                android:id="@+id/event1"
+                android:textColor="#2d2a2a"
+                android:textStyle="bold"
+                android:typeface="sans" />
+
+
+            <ImageView
+                android:id="@+id/event1_view"
                 android:layout_width="match_parent"
-                android:layout_height="170dp"
+                android:layout_height="match_parent"
                 android:layout_below="@+id/tv_event1"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="20dp"
                 android:adjustViewBounds="true"
                 android:fitsSystemWindows="true"
-                android:scaleType = "fitXY"
-                android:src="@drawable/aagama" />
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/info_event1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/event1_view"
+                android:paddingBottom="20dp"
+                android:paddingTop="20dp"
+                android:textColor="#2d2a2a"
+                android:textSize="17sp"
+                android:typeface="sans" />
+
+            <Button
+                android:id="@+id/b_event1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/info_event1"
+                android:text="Notify" />
 
             <TextView
                 android:id="@+id/tv_event2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/event1"
+                android:layout_below="@+id/b_event1"
+                android:paddingBottom="20dp"
                 android:paddingTop="20dp"
-                android:text="Rasaayinaka :"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                android:textColor="#2d2a2a" />
+                android:textColor="#2d2a2a"
+                android:textStyle="bold"
+                android:typeface="sans" />
 
-            <ImageButton
-                android:id="@+id/event2"
+            <ImageView
+                android:id="@+id/event2_view"
                 android:layout_width="match_parent"
-                android:layout_height="170dp"
+                android:layout_height="match_parent"
                 android:layout_below="@+id/tv_event2"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="20dp"
                 android:adjustViewBounds="true"
-                android:scaleType="fitXY"
-                android:src="@drawable/rasaayanika" />
+                android:fitsSystemWindows="true"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/info_event2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/event2_view"
+                android:paddingBottom="20dp"
+                android:paddingTop="20dp"
+                android:textColor="#2d2a2a"
+                android:textSize="17sp"
+                android:typeface="sans" />
+
+            <Button
+                android:id="@+id/b_event2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/info_event2"
+                android:text="Notify" />
 
             <TextView
                 android:id="@+id/tv_event3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/event2"
+                android:layout_below="@+id/b_event2"
+                android:paddingBottom="20dp"
                 android:paddingTop="20dp"
-                android:text="Sports Bout :"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                android:textColor="#2d2a2a" />
-            <ImageButton
-                android:id="@+id/event3"
+                android:textColor="#2d2a2a"
+                android:textStyle="bold"
+                android:typeface="sans" />
+
+            <ImageView
+                android:id="@+id/event3_view"
                 android:layout_width="match_parent"
-                android:layout_height="170dp"
+                android:layout_height="match_parent"
                 android:layout_below="@+id/tv_event3"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="20dp"
                 android:adjustViewBounds="true"
-                android:scaleType="fitXY"
-                android:src="@drawable/sports_bout" />
+                android:fitsSystemWindows="true"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/info_event3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/event3_view"
+                android:paddingBottom="20dp"
+                android:paddingTop="20dp"
+                android:textColor="#2d2a2a"
+                android:textSize="17sp"
+                android:typeface="sans" />
+
+            <Button
+                android:id="@+id/b_event3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/info_event3"
+                android:text="Notify" />
         </RelativeLayout>
     </ScrollView>
     <android.support.design.widget.NavigationView

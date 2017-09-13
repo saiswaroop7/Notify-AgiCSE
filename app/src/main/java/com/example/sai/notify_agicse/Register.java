@@ -69,6 +69,12 @@ public class Register extends AppCompatActivity {
                     databaseReference.child(id).child("Email").setValue(email.getText().toString());
                     databaseReference.child(id).child("Password").setValue(password.getText().toString());
                     databaseReference.child(id).child("Name").setValue(name.getText().toString());
+                    databaseReference.child(id).child("event1").setValue("no");
+                    databaseReference.child(id).child("event2").setValue("no");
+                    databaseReference.child(id).child("event3").setValue("no");
+                    databaseReference.child(id).child("event4").setValue("no");
+                    databaseReference.child(id).child("event5").setValue("no");
+                    databaseReference.child(id).child("event6").setValue("no");
                     Toast.makeText(Register.this, "Registration Successful", Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(getApplicationContext(), Login.class);
                     startActivity(i);

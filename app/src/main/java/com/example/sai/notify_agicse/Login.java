@@ -74,8 +74,7 @@ public class Login extends AppCompatActivity {
                     Intent i = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(i);
                     finish();
-                }
-                else {
+                } else {
                     progressDialog.dismiss();
                     Toast.makeText(getApplicationContext(), "User is not Registered. Please try Again", Toast.LENGTH_SHORT).show();
                 }
