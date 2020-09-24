@@ -1,4 +1,4 @@
-package com.example.sai.notify_agicse;
+package com.swaroop.sai.notify_agicse;
 
 import android.app.ProgressDialog;
 import android.support.annotation.NonNull;
@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import android.content.Intent;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -66,7 +65,6 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), Forgot.class));
-                finish();
             }
         });
     }
@@ -109,5 +107,4 @@ public class Login extends AppCompatActivity {
 
         return valid;
     }
-
 }

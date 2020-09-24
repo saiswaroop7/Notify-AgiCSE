@@ -5,7 +5,7 @@
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.sai.notify_agicse.MainActivity">
+    tools:context="com.swaroop.sai.notify_agicse.MainActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -20,6 +20,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
+                android:layout_marginLeft="10dp"
                 android:text="Department of Computer Science and Engineering (CSE) was established in 2002 and accredited by NBA in 2009. The CSE department has been re-accredited by NBA in 2017, which is valid till 2020. From the inception the department is relentlessly working hard with commitment to provide best quality education. It has been recognized as one of the best learning centers. In addition to this, CSE Department consists of various number of technical clubs like Android Club, Web club etc."
                 android:textColor="@color/primaryTextColor"
                 android:textSize="20sp"

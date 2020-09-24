@@ -1,6 +1,7 @@
-package com.example.sai.notify_agicse;
+package com.swaroop.sai.notify_agicse;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,8 +9,8 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -19,7 +20,6 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -38,11 +38,12 @@ public class Settings extends AppCompatActivity implements NavigationView.OnNavi
     DrawerLayout mDrawerLayout;
     ActionBarDrawerToggle mToggle;
     NavigationView nv;
-    String ed1, ed2, id, userid;
-    private EditText email, remail;
+    String ed1, ed2, id, userid, pass, repass;
+    private EditText email, remail, edpass, edrepass;
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
+    AlertDialog alertDialog;
     private DatabaseReference databaseReference, ref;
 
     @Override
@@ -51,6 +52,9 @@ public class Settings extends AppCompatActivity implements NavigationView.OnNavi
         setContentView(R.layout.settings);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.settings);
         ref = FirebaseDatabase.getInstance().getReference("Users");
+        alertDialog = new AlertDialog.Builder(Settings.this).create();
+        alertDialog.setTitle("Reset Successful!");
+        alertDialog.setMessage("All the event's statuses have been reset");
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close);
         mDrawerLayout.setDrawerListener(mToggle);
         mToggle.syncState();
@@ -75,9 +79,11 @@ public class Settings extends AppCompatActivity implements NavigationView.OnNavi
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReferenceFromUrl("https://notify-agicse.firebaseio.com/Users");
-        Button b1 = (Button) findViewById(R.id.b_update);
-        email = (EditText) findViewById(R.id.ed_new);
-        remail = (EditText) findViewById(R.id.ed_renew);
+        Button b1 = (Button) findViewById(R.id.b_updatemail);
+        email = (EditText) findViewById(R.id.ed_mail);
+        remail = (EditText) findViewById(R.id.ed_remail);
+        edpass = (EditText) findViewById(R.id.ed_pass);
+        edrepass = (EditText) findViewById(R.id.ed_repass);
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,11 +96,70 @@ public class Settings extends AppCompatActivity implements NavigationView.OnNavi
                 }
             }
         });
+        Button b2 = (Button) findViewById(R.id.b_updatepass);
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                verify_pass();
+                if (!verify_pass()) {
+                    Toast.makeText(getApplicationContext(), "Verification Error. Please try Again", Toast.LENGTH_SHORT).show();
+                    progressDialog.dismiss();
+                } else {
+                    Success_pass();
+                }
+            }
+        });
+        Button b3 = (Button) findViewById(R.id.b_reseteve);
+        b3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                id = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                databaseReference.child(id).child("event1").setValue("no");
+                databaseReference.child(id).child("event2").setValue("no");
+                databaseReference.child(id).child("event3").setValue("no");
+                databaseReference.child(id).child("event4").setValue("no");
+                databaseReference.child(id).child("event5").setValue("no");
+                databaseReference.child(id).child("event6").setValue("no");
+                databaseReference.child(id).child("event7").setValue("no");
+                databaseReference.child(id).child("event8").setValue("no");
+                confirm();
+            }
+        });
+    }
+
+    public void confirm() {
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Ok",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+        alertDialog.show();
+    }
+
+    public boolean verify_pass() {
+        pass = edpass.getText().toString().trim();
+        repass = edrepass.getText().toString().trim();
+        boolean valid = true;
+        if (pass.isEmpty() || edpass.length() < 4 || edpass.length() > 15) {
+            edpass.setError("Password length must be 4-15 characters");
+            valid = false;
+        } else {
+            edpass.setError(null);
+        }
+        if (!pass.equals(repass)) {
+            edrepass.setError("Password does not match");
+            valid = false;
+        } else {
+            edpass.setError(null);
+        }
+        return valid;
     }
 
     public boolean verify() {
         ed1 = email.getText().toString().trim();
         ed2 = remail.getText().toString().trim();
+
         boolean valid = true;
         if (ed1.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(ed1).matches()) {
             email.setError("Please enter a valid email address");
@@ -103,11 +168,12 @@ public class Settings extends AppCompatActivity implements NavigationView.OnNavi
             email.setError(null);
         }
         if (!ed1.equals(ed2)) {
-            remail.setError("Password does not match");
+            remail.setError("Email does not match");
             valid = false;
         } else {
             remail.setError(null);
         }
+
         return valid;
     }
 
@@ -124,6 +190,27 @@ public class Settings extends AppCompatActivity implements NavigationView.OnNavi
                         if (task.isSuccessful()) {
                             databaseReference.child(id).child("Email").setValue(ed1);
                             Toast.makeText(getApplicationContext(), "User email address updated.", Toast.LENGTH_LONG).show();
+                            progressDialog.dismiss();
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Update Error. Please try again", Toast.LENGTH_LONG).show();
+                            progressDialog.dismiss();
+                        }
+                    }
+                });
+    }
+
+    public void Success_pass() {
+        progressDialog.setMessage("Updating Password");
+        progressDialog.show();
+        final String id2 = firebaseAuth.getInstance().getCurrentUser().getUid();
+        FirebaseUser user2 = firebaseAuth.getInstance().getCurrentUser();
+        user2.updatePassword(pass)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            databaseReference.child(id2).child("Password").setValue(pass);
+                            Toast.makeText(getApplicationContext(), "Password updated.", Toast.LENGTH_LONG).show();
                             progressDialog.dismiss();
                         } else {
                             Toast.makeText(getApplicationContext(), "Update Error. Please try again", Toast.LENGTH_LONG).show();

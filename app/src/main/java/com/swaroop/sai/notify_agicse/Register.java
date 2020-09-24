@@ -1,4 +1,4 @@
-package com.example.sai.notify_agicse;
+package com.swaroop.sai.notify_agicse;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -8,14 +8,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -74,6 +72,8 @@ public class Register extends AppCompatActivity {
                     databaseReference.child(id).child("event4").setValue("no");
                     databaseReference.child(id).child("event5").setValue("no");
                     databaseReference.child(id).child("event6").setValue("no");
+                    databaseReference.child(id).child("event7").setValue("no");
+                    databaseReference.child(id).child("event8").setValue("no");
                     Toast.makeText(Register.this, "Registration Successful", Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(getApplicationContext(), Login.class);
                     startActivity(i);

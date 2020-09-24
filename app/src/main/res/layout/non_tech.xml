@@ -16,7 +16,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/tv_event1"
+                android:id="@+id/tv_event5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="20dp"
@@ -27,20 +27,20 @@
 
 
             <ImageView
-                android:id="@+id/event1_view"
+                android:id="@+id/event5_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@+id/tv_event1"
+                android:layout_below="@+id/tv_event5"
                 android:layout_marginTop="20dp"
                 android:adjustViewBounds="true"
                 android:fitsSystemWindows="true"
                 android:scaleType="fitXY" />
 
             <TextView
-                android:id="@+id/info_event1"
+                android:id="@+id/info_event5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/event1_view"
+                android:layout_below="@+id/event5_view"
                 android:paddingBottom="20dp"
                 android:paddingTop="20dp"
                 android:textColor="@color/primaryTextColor"
@@ -48,20 +48,20 @@
                 android:typeface="sans" />
 
             <Button
-                android:id="@+id/b_event1"
+                android:id="@+id/b_event5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_below="@+id/info_event1"
+                android:layout_below="@+id/info_event5"
                 android:layout_marginRight="20dp"
                 android:background="@drawable/button_events"
                 android:text="Notify" />
 
             <TextView
-                android:id="@+id/tv_event2"
+                android:id="@+id/tv_event6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/b_event1"
+                android:layout_below="@+id/b_event5"
                 android:paddingBottom="20dp"
                 android:paddingTop="20dp"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
@@ -70,20 +70,20 @@
                 android:typeface="sans" />
 
             <ImageView
-                android:id="@+id/event2_view"
+                android:id="@+id/event6_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@+id/tv_event2"
+                android:layout_below="@+id/tv_event6"
                 android:layout_marginTop="20dp"
                 android:adjustViewBounds="true"
                 android:fitsSystemWindows="true"
                 android:scaleType="fitXY" />
 
             <TextView
-                android:id="@+id/info_event2"
+                android:id="@+id/info_event6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/event2_view"
+                android:layout_below="@+id/event6_view"
                 android:paddingBottom="20dp"
                 android:paddingTop="20dp"
                 android:textColor="@color/primaryTextColor"
@@ -91,20 +91,20 @@
                 android:typeface="sans" />
 
             <Button
-                android:id="@+id/b_event2"
+                android:id="@+id/b_event6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_below="@+id/info_event2"
+                android:layout_below="@+id/info_event6"
                 android:layout_marginRight="20dp"
                 android:background="@drawable/button_events"
                 android:text="Notify" />
 
             <TextView
-                android:id="@+id/tv_event3"
+                android:id="@+id/tv_event7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/b_event2"
+                android:layout_below="@+id/b_event6"
                 android:paddingBottom="20dp"
                 android:paddingTop="20dp"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
@@ -113,20 +113,20 @@
                 android:typeface="sans" />
 
             <ImageView
-                android:id="@+id/event3_view"
+                android:id="@+id/event7_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@+id/tv_event3"
+                android:layout_below="@+id/tv_event7"
                 android:layout_marginTop="20dp"
                 android:adjustViewBounds="true"
                 android:fitsSystemWindows="true"
                 android:scaleType="fitXY" />
 
             <TextView
-                android:id="@+id/info_event3"
+                android:id="@+id/info_event7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/event3_view"
+                android:layout_below="@+id/event7_view"
                 android:paddingBottom="20dp"
                 android:paddingTop="20dp"
                 android:textColor="@color/primaryTextColor"
@@ -134,11 +134,55 @@
                 android:typeface="sans" />
 
             <Button
-                android:id="@+id/b_event3"
+                android:id="@+id/b_event7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_below="@+id/info_event3"
+                android:layout_below="@+id/info_event7"
+                android:layout_marginBottom="15dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/button_events"
+                android:text="Notify" />
+
+            <TextView
+                android:id="@+id/tv_event8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/b_event7"
+                android:paddingBottom="20dp"
+                android:paddingTop="20dp"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:textColor="@color/primaryTextColor"
+                android:textStyle="bold"
+                android:typeface="sans" />
+
+            <ImageView
+                android:id="@+id/event8_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/tv_event8"
+                android:layout_marginTop="20dp"
+                android:adjustViewBounds="true"
+                android:fitsSystemWindows="true"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/info_event8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/event8_view"
+                android:paddingBottom="20dp"
+                android:paddingTop="20dp"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="17sp"
+                android:typeface="sans" />
+
+            <Button
+                android:id="@+id/b_event8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/info_event8"
                 android:layout_marginBottom="15dp"
                 android:layout_marginRight="20dp"
                 android:background="@drawable/button_events"

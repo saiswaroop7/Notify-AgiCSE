@@ -143,6 +143,50 @@
                 android:layout_marginRight="20dp"
                 android:background="@drawable/button_events"
                 android:text="Notify" />
+
+            <TextView
+                android:id="@+id/tv_event4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/b_event3"
+                android:paddingBottom="20dp"
+                android:paddingTop="20dp"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:textColor="@color/primaryTextColor"
+                android:textStyle="bold"
+                android:typeface="sans" />
+
+            <ImageView
+                android:id="@+id/event4_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/tv_event4"
+                android:layout_marginTop="20dp"
+                android:adjustViewBounds="true"
+                android:fitsSystemWindows="true"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/info_event4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/event4_view"
+                android:paddingBottom="20dp"
+                android:paddingTop="20dp"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="17sp"
+                android:typeface="sans" />
+
+            <Button
+                android:id="@+id/b_event4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/info_event4"
+                android:layout_marginBottom="15dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/button_events"
+                android:text="Notify" />
         </RelativeLayout>
     </ScrollView>
 

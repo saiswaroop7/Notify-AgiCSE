@@ -1,4 +1,4 @@
-package com.example.sai.notify_agicse;
+package com.swaroop.sai.notify_agicse;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

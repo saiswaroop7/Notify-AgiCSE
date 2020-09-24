@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.sai.notify_agicse">
+    package="com.swaroop.sai.notify_agicse">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
@@ -23,42 +23,45 @@
             android:name=".Login"
             android:label="@string/bar"
             android:theme="@style/login"
-            android:windowSoftInputMode="stateHidden">
-        </activity>
+            android:windowSoftInputMode="stateHidden"></activity>
         <activity
             android:name=".Register"
-            android:label="@string/bar"
+            android:label="Registration"
             android:theme="@style/login"
             android:windowSoftInputMode="stateHidden"></activity>
         <activity
             android:name=".Forgot"
+            android:label="Forgot Password"
             android:theme="@style/login"
             android:windowSoftInputMode="stateHidden"></activity>
         <activity
             android:name=".MainActivity"
-            android:label="@string/bar"
+            android:label="Home"
             android:theme="@style/AppTheme"></activity>
-
         <activity
             android:name=".About"
             android:label="@string/about"
             android:theme="@style/AppTheme"></activity>
         <activity
             android:name=".Tech"
-            android:label="@string/bar"
+            android:label="Technical"
             android:theme="@style/AppTheme"></activity>
         <activity
             android:name=".Non_tech"
-            android:label="@string/bar"
+            android:label="Non Technical"
             android:theme="@style/AppTheme"></activity>
         <activity
-        android:name=".Dev"
-            android:label="@string/bar"
+            android:name=".Dev"
+            android:label="Contact Us"
             android:theme="@style/AppTheme"></activity>
         <activity
             android:name=".Settings"
-            android:label="@string/bar"
+            android:label="Settings"
             android:theme="@style/AppTheme"></activity>
+        <activity
+            android:name=".Full"
+            android:label="Blender"
+            android:theme="@style/Splash"></activity>
     </application>
 
 </manifest>

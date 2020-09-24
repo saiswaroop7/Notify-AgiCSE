@@ -1,4 +1,4 @@
-package com.example.sai.notify_agicse;
+package com.swaroop.sai.notify_agicse;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

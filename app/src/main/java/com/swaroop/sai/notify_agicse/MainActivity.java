@@ -1,24 +1,17 @@
-package com.example.sai.notify_agicse;
+package com.swaroop.sai.notify_agicse;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.LoginFilter;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -31,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     ActionBarDrawerToggle mToggle;
     NavigationView nv;
     String userid;
+    TextView textView;
     DatabaseReference ref;
     private FirebaseAuth firebaseAuth;
 
@@ -45,20 +39,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mDrawerLayout.setDrawerListener(mToggle);
         mToggle.syncState();
         if (firebaseAuth.getCurrentUser() != null) {
-        ref.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String id = firebaseAuth.getInstance().getCurrentUser().getUid();
-                userid = dataSnapshot.child(id).child("Name").getValue().toString();
-                TextView textView = (TextView) findViewById(R.id.header_tv);
-                textView.setText("Welcome, " + userid);
-            }
+            ref.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    String id = firebaseAuth.getCurrentUser().getUid();
+                    textView = (TextView) findViewById(R.id.header_tv);
+                    userid = dataSnapshot.child(id).child("Name").getValue().toString();
+                    if(textView!=null){
+                    textView.setText("Welcome, " + userid);
+                }
+                }
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
+                }
+            });
         }
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         nv = (NavigationView) findViewById(R.id.nav_view);
@@ -75,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (back_pressed + 2000 > System.currentTimeMillis()) {
             firebaseAuth.signOut();
             super.onBackPressed();
+            finish();
         } else
             Toast.makeText(getBaseContext(), "Press again to exit", Toast.LENGTH_SHORT).show();
         back_pressed = System.currentTimeMillis();
@@ -127,5 +123,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             return mToggle.onOptionsItemSelected(item);
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        finish();
     }
 }

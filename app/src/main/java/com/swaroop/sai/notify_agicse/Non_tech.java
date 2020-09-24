@@ -1,4 +1,4 @@
-package com.example.sai.notify_agicse;
+package com.swaroop.sai.notify_agicse;
 
 import android.content.Intent;
 import android.support.design.widget.NavigationView;
@@ -25,36 +25,34 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-import static java.lang.Thread.sleep;
-
 /**
  * Created by Sai on 26-07-2017.
  */
-
-public class Tech extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-
+public class Non_tech extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private static long back_pressed;
     DrawerLayout mDrawerLayout;
     ActionBarDrawerToggle mToggle;
-    NavigationView nv;
     String id, userid;
-    TextView tv1, tv2, tv3, info_event1, info_event2, info_event3;
-    private FirebaseAuth firebaseAuth;
-    private FirebaseDatabase firebaseDatabase;
+    TextView tv5, tv6, tv7, tv8, info_event5, info_event6, info_event7, info_event8;
+    NavigationView nv;
     private DatabaseReference databaseReference, info, events, ref;
-    private StorageReference ev1, ev2, ev3;
+    private FirebaseDatabase firebaseDatabase;
+    private StorageReference ev5, ev6, ev7, ev8;
+    private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tech);
+        setContentView(R.layout.non_tech);
         ref = FirebaseDatabase.getInstance().getReference("Users");
-        tv1 = (TextView) findViewById(R.id.tv_event1);
-        tv2 = (TextView) findViewById(R.id.tv_event2);
-        tv3 = (TextView) findViewById(R.id.tv_event3);
-        info_event1 = (TextView) findViewById(R.id.info_event1);
-        info_event2 = (TextView) findViewById(R.id.info_event2);
-        info_event3 = (TextView) findViewById(R.id.info_event3);
+        tv5 = (TextView) findViewById(R.id.tv_event5);
+        tv6 = (TextView) findViewById(R.id.tv_event6);
+        tv7 = (TextView) findViewById(R.id.tv_event7);
+        tv8 = (TextView) findViewById(R.id.tv_event8);
+        info_event5 = (TextView) findViewById(R.id.info_event5);
+        info_event6 = (TextView) findViewById(R.id.info_event6);
+        info_event7 = (TextView) findViewById(R.id.info_event7);
+        info_event8 = (TextView) findViewById(R.id.info_event8);
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
         ref.addValueEventListener(new ValueEventListener() {
@@ -75,8 +73,8 @@ public class Tech extends AppCompatActivity implements NavigationView.OnNavigati
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String eve1 = dataSnapshot.child("Technical").child("Event1").getValue().toString();
-                tv1.setText(eve1 + " :");
+                String eve5 = dataSnapshot.child("Non_tech").child("Event5").getValue().toString();
+                tv5.setText(eve5 + " :");
             }
 
             @Override
@@ -87,8 +85,8 @@ public class Tech extends AppCompatActivity implements NavigationView.OnNavigati
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String eve2 = dataSnapshot.child("Technical").child("Event2").getValue().toString();
-                tv2.setText(eve2 + " :");
+                String eve6 = dataSnapshot.child("Non_tech").child("Event6").getValue().toString();
+                tv6.setText(eve6 + " :");
             }
 
             @Override
@@ -99,8 +97,20 @@ public class Tech extends AppCompatActivity implements NavigationView.OnNavigati
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String eve3 = dataSnapshot.child("Technical").child("Event3").getValue().toString();
-                tv3.setText(eve3 + " :");
+                String eve7 = dataSnapshot.child("Non_tech").child("Event7").getValue().toString();
+                tv7.setText(eve7 + " :");
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String eve8 = dataSnapshot.child("Non_tech").child("Event8").getValue().toString();
+                tv8.setText(eve8 + " :");
             }
 
             @Override
@@ -112,8 +122,8 @@ public class Tech extends AppCompatActivity implements NavigationView.OnNavigati
         info.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String eve1_info = dataSnapshot.child("Event1").getValue().toString();
-                info_event1.setText(eve1_info);
+                String eve5_info = dataSnapshot.child("Event5").getValue().toString();
+                info_event5.setText(eve5_info);
             }
 
             @Override
@@ -124,8 +134,8 @@ public class Tech extends AppCompatActivity implements NavigationView.OnNavigati
         info.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String eve2_info = dataSnapshot.child("Event2").getValue().toString();
-                info_event2.setText(eve2_info);
+                String eve6_info = dataSnapshot.child("Event6").getValue().toString();
+                info_event6.setText(eve6_info);
             }
 
             @Override
@@ -136,64 +146,93 @@ public class Tech extends AppCompatActivity implements NavigationView.OnNavigati
         info.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String eve3_info = dataSnapshot.child("Event3").getValue().toString();
-                info_event3.setText(eve3_info);
+                String eve7_info = dataSnapshot.child("Event7").getValue().toString();
+                info_event7.setText(eve7_info);
             }
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
             }
         });
-        ev1 = FirebaseStorage.getInstance().getReferenceFromUrl("gs://notify-agicse.appspot.com/Technical/photoshop.jpg");
-        ev2 = FirebaseStorage.getInstance().getReferenceFromUrl("gs://notify-agicse.appspot.com/Technical/Electronique.jpg");
-        ev3 = FirebaseStorage.getInstance().getReferenceFromUrl("gs://notify-agicse.appspot.com/Technical/ignite_technical.jpg");
-        ImageView e1 = (ImageView) findViewById(R.id.event1_view);
+        info.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String eve8_info = dataSnapshot.child("Event8").getValue().toString();
+                info_event8.setText(eve8_info);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        ev5 = FirebaseStorage.getInstance().getReferenceFromUrl("gs://notify-agicse.appspot.com/Non_Technical/event5.jpg");
+        ev6 = FirebaseStorage.getInstance().getReferenceFromUrl("gs://notify-agicse.appspot.com/Non_Technical/event6.jpg");
+        ev7 = FirebaseStorage.getInstance().getReferenceFromUrl("gs://notify-agicse.appspot.com/Non_Technical/event7.jpg");
+        ev8 = FirebaseStorage.getInstance().getReferenceFromUrl("gs://notify-agicse.appspot.com/Non_Technical/event8.jpg");
+        ImageView e5 = (ImageView) findViewById(R.id.event5_view);
         Glide.with(this)
                 .using(new FirebaseImageLoader())
-                .load(ev1)
+                .load(ev5)
                 .placeholder(R.drawable.photoshop)
-                .into(e1);
-        ImageView e2 = (ImageView) findViewById(R.id.event2_view);
+                .into(e5);
+        ImageView e6 = (ImageView) findViewById(R.id.event6_view);
         Glide.with(this)
                 .using(new FirebaseImageLoader())
-                .load(ev2)
+                .load(ev6)
                 .placeholder(R.drawable.photoshop)
-                .into(e2);
-        ImageView e3 = (ImageView) findViewById(R.id.event3_view);
+                .into(e6);
+        ImageView e7 = (ImageView) findViewById(R.id.event7_view);
         Glide.with(this)
                 .using(new FirebaseImageLoader())
-                .load(ev3)
+                .load(ev7)
                 .placeholder(R.drawable.photoshop)
-                .into(e3);
+                .into(e7);
+        ImageView e8 = (ImageView) findViewById(R.id.event8_view);
+        Glide.with(this)
+                .using(new FirebaseImageLoader())
+                .load(ev8)
+                .placeholder(R.drawable.photoshop)
+                .into(e8);
         events = firebaseDatabase.getReferenceFromUrl("https://notify-agicse.firebaseio.com/Users");
-        Button b1 = (Button) findViewById(R.id.b_event1);
-        b1.setOnClickListener(new View.OnClickListener() {
+        Button b5 = (Button) findViewById(R.id.b_event5);
+        b5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 id = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                events.child(id).child("event1").setValue("yes");
+                events.child(id).child("event5").setValue("yes");
                 Toast.makeText(getApplicationContext(), "You will be Notified", Toast.LENGTH_LONG).show();
             }
         });
-        Button b2 = (Button) findViewById(R.id.b_event2);
-        b2.setOnClickListener(new View.OnClickListener() {
+        Button b6 = (Button) findViewById(R.id.b_event6);
+        b6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 id = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                events.child(id).child("event2").setValue("yes");
+                events.child(id).child("event6").setValue("yes");
                 Toast.makeText(getApplicationContext(), "You will be Notified", Toast.LENGTH_LONG).show();
             }
         });
-        Button b3 = (Button) findViewById(R.id.b_event3);
-        b3.setOnClickListener(new View.OnClickListener() {
+        Button b7 = (Button) findViewById(R.id.b_event7);
+        b7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 id = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                events.child(id).child("event3").setValue("yes");
+                events.child(id).child("event7").setValue("yes");
                 Toast.makeText(getApplicationContext(), "You will be Notified", Toast.LENGTH_LONG).show();
             }
         });
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.tech);
+        Button b8 = (Button) findViewById(R.id.b_event8);
+        b8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                id = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                events.child(id).child("event8").setValue("yes");
+                Toast.makeText(getApplicationContext(), "You will be Notified", Toast.LENGTH_LONG).show();
+            }
+        });
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.non_tech);
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close);
         mDrawerLayout.setDrawerListener(mToggle);
         mToggle.syncState();
@@ -204,7 +243,7 @@ public class Tech extends AppCompatActivity implements NavigationView.OnNavigati
 
     @Override
     public void onBackPressed() {
-        DrawerLayout back = (DrawerLayout) findViewById(R.id.tech);
+        DrawerLayout back = (DrawerLayout) findViewById(R.id.non_tech);
         if (back.isDrawerOpen(GravityCompat.START)) {
             back.closeDrawer(GravityCompat.START);
         } else if (back_pressed + 2000 > System.currentTimeMillis()) {
@@ -232,20 +271,20 @@ public class Tech extends AppCompatActivity implements NavigationView.OnNavigati
                 startActivity(new Intent(this, MainActivity.class));
                 finish();
                 break;
-            case R.id.nav_nontech:
-                startActivity(new Intent(this, Non_tech.class));
+            case R.id.nav_tech:
+                startActivity(new Intent(this, Tech.class));
                 finish();
                 break;
             case R.id.nav_about:
                 startActivity(new Intent(this, About.class));
                 finish();
                 break;
-            case R.id.nav_Dev:
-                startActivity(new Intent(this, Dev.class));
-                finish();
-                break;
             case R.id.nav_settings:
                 startActivity(new Intent(this, Settings.class));
+                finish();
+                break;
+            case R.id.nav_Dev:
+                startActivity(new Intent(this, Dev.class));
                 finish();
                 break;
             case R.id.nav_logout:
@@ -254,11 +293,9 @@ public class Tech extends AppCompatActivity implements NavigationView.OnNavigati
                     startActivity(new Intent(this, Login.class));
                     finish();
                 }
-
         }
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.tech);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.non_tech);
         drawer.closeDrawer(GravityCompat.START);
-
     }
 
     @Override
@@ -269,4 +306,3 @@ public class Tech extends AppCompatActivity implements NavigationView.OnNavigati
         return super.onOptionsItemSelected(item);
     }
 }
-

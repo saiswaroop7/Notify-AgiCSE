@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#2C3E50"
-    tools:context="com.example.sai.notify_agicse.SplashScreen">
+    tools:context="com.swaroop.sai.notify_agicse.SplashScreen">
+
 
     <ImageView
         android:layout_width="match_parent"

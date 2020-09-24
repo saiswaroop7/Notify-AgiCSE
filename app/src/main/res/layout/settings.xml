@@ -5,64 +5,139 @@
     android:id="@+id/settings"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.sai.notify_agicse.Settings">
-
+    tools:context="com.swaroop.sai.notify_agicse.Settings">
+<ScrollView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tv_new"
+            android:id="@+id/tv_change"
             android:layout_width="wrap_content"
+            android:typeface="serif"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            android:text="Enter New Email :"
+            android:layout_marginTop="15dp"
+            android:text="Change Email:"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_new"
+            android:layout_below="@+id/tv_change"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp">
 
             <EditText
-                android:id="@+id/ed_new"
+                android:id="@+id/ed_mail"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:hint="Enter New Email" />
         </android.support.design.widget.TextInputLayout>
 
-        <TextView
-            android:id="@+id/tv_reenter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Re-Enter Email :"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
-
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_reenter"
+            android:layout_below="@+id/ed_mail"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp">
 
             <EditText
-                android:id="@+id/ed_renew"
+                android:id="@+id/ed_remail"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:hint="Re-Enter Email" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.v7.widget.AppCompatButton
-            android:id="@+id/b_update"
+            android:id="@+id/b_updatemail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:background="#55c7da"
             android:padding="12dp"
             android:text="Update Email" />
-    </LinearLayout>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Change Password:"
+            android:typeface="serif"
+            android:id="@+id/tv_pass"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_pass"
+            android:layout_marginBottom="8dp"
+            app:passwordToggleEnabled="true"
+            android:layout_marginTop="8dp">
+
+            <EditText
+                android:id="@+id/ed_pass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:hint="Enter new password" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ed_pass"
+            app:passwordToggleEnabled="true"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp">
+
+            <EditText
+                android:id="@+id/ed_repass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:hint="Re-Enter Password" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/b_updatepass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:background="#55c7da"
+            android:padding="12dp"
+            android:layout_marginBottom="10dp"
+            android:text="Change Password" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reset Notifications Status :"
+            android:layout_marginTop="15dp"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="Warning! This will reset your notification status of all your events."
+            android:textSize="25sp"
+            android:id="@+id/tv_warning"/>
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/b_reseteve"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:background="#55c7da"
+            android:padding="12dp"
+            android:layout_marginBottom="10dp"
+            android:text="Reset Event's Status" />
+    </LinearLayout>
+</ScrollView>
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"

@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:28514400903:android:29a416f600b054d9",
         "android_client_info": {
-          "package_name": "com.example.sai.notify_agicse"
+          "package_name": "com.swaroop.sai.notify_agicse"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "28514400903-eut8275bkib8e4th5diesou3polvh48o.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.sai.notify_agicse",
+            "package_name": "com.swaroop.sai.notify_agicse",
             "certificate_hash": "f93c785bf6292a40950fc41840b8d8525430e2f8"
           }
         },
