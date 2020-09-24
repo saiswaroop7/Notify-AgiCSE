@@ -1,0 +1,8 @@
+# Notify-AgiCSE
+Android Application
+The Notify-agicse is an android application software which allows users to access the information about the various events, news and updates in the CSE department. The main goal of this project is to keep the users updated about the activities which are taking place in the college. It provides information on the workshops, seminars and other major events which are conducted in the college. It acts as a mobile version of the college website for the CSE department. Whenever a new event is hosted, this app immediately alerts the users in the form of notifications. 1.1 Purpose This application has been developed to to keep the students updated and notifies them of the events accordingly. The students can select a particular event they are interested in and select the notify option to remind them afterwards. It also provides us with a list of upcoming events. 1.2 Scope Before proposing our project, people, who are aspirants of attending events can attend events by getting notification from application and through email and can participate actively. Generally, many students do not regularly visit the website to check for any events so many of them do not know when an event is hosted. This application is mainly designed for students so that they can attend and participate in the events. 1.3 Features To actively participate in every events by getting notifications through app and email by clicking notify me
+
+To participate in the events without missing it.
+User is immediately notified when a new event is added.
+User will receive a reminder email a day before the event.
+Technologies Used: Android programming, Google Firebase, NodeJS and Cloud functions.
